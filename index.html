@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campuslands | Talento Tech a tu Medida</title>
+  <meta name="description" content="Formamos talento tecnológico a la medida de tu empresa. Programadores listos desde el primer día." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Lucide -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js" defer></script>
+
+  <link rel="stylesheet" href="CSS/styles.css" />
+</head>
+
+<body>
+    
+    
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#top" class="nav-brand" aria-label="Ir al inicio">
+        <img src="IMG/logoCampus-removebg-preview.png" alt="Campuslands Logo" class="nav-logo" width="48" height="48" fetchpriority="high" />
+        <span class="nav-title">Campuslands</span>
+      </a>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-link">Nosotros</a>
+        <a href="#services" class="nav-link">Servicios</a>
+        <a href="#methodology" class="nav-link">Metodología</a>
+        <a href="#impact" class="nav-link">Impacto</a>
+        <button class="btn-contact" id="btnOpenModal" type="button">Contactar</button>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" type="button">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="#contact" class="nav-cta-mobile">Contactar</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-overlay"></div>
+    <div class="container hero-shell">
+      <div class="hero-grid">
+        <div class="hero-text fade-up">
+          <span class="hero-brand">Campuslands</span>
+          <h1 class="hero-title">
+            Formamos <span class="text-gradient">talento tech</span><br />
+            a la medida de tu empresa
+          </h1>
+          <p class="hero-description">
+            Programadores con dominio técnico, pensamiento crítico y habilidades profesionales.
+            Listos para entregar resultados desde el primer día.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="btn-primary btn-lg nav-link">Solicitar Talento</a>
+            <a href="#about" class="btn-secondary btn-lg nav-link">Conocer más</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="mini-stat">
+              <p class="mini-stat__value"data-count="1600">+0</p>
+              <p class="mini-stat__label">Horas prácticas</p>
+            </div>
+            <div class="mini-stat">
+              <p class="mini-stat__value">80%</p>
+              <p class="mini-stat__label">Empleabilidad</p>
+            </div>
+            <div class="mini-stat">
+              <p class="mini-stat__value">B1–C1</p>
+              <p class="mini-stat__label">Inglés</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-hidden="true">
+          <div class="panel-card panel-card--main">
+            <div class="panel-head">
+              <span class="panel-pill">Talent Pool</span>
+              <span class="panel-dot"></span>
+            </div>
+            <p class="panel-title">Camper listo para tu equipo</p>
+            <p class="panel-sub">Matching técnico + cultural, con entrenamiento intensivo.</p>
+
+            <div class="panel-kpis">
+              <div class="panel-kpi">
+                <i data-lucide="clock" aria-hidden="true"></i>
+                <div>
+                  <p class="kpi-value" data-count="1600">+0</p>
+                  <p class="kpi-label">horas</p>
+                </div>
+              </div>
+              <div class="panel-kpi">
+                <i data-lucide="trending-up" aria-hidden="true"></i>
+                <div>
+                  <p class="kpi-value">85%</p>
+                  <p class="kpi-label">partners ahorran</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-bar"><span class="panel-bar__fill"></span></div>
+            <p class="panel-foot">Onboarding rápido • Seguimiento • Garantía</p>
+          </div>
+
+          <div class="panel-card panel-card--side">
+            <p class="side-title">Stack</p>
+            <div class="side-tags">
+              <span>React</span><span>Node</span><span>Java</span><span>SQL</span><span>IA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a class="hero-scroll nav-link" href="#about" aria-label="Ir a la sección Nosotros"><span></span></a>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section section-about">
+    <div class="container">
+      <div class="section-split">
+        <div class="section-header section-header--left">
+          <p class="section-tag">Quiénes Somos</p>
+          <h2 class="section-title">
+            Transformamos talento en <span class="text-gradient">impacto real</span>
+          </h2>
+          <p class="section-description">
+            En Campuslands formamos talento tecnológico con preparación sólida, práctica y orientada a la
+            integración efectiva en equipos de alto rendimiento.
+          </p>
+        </div>
+
+        <div class="split-aside">
+          <div class="aside-card">
+            <p class="aside-kpi" data-count="800">+0</p>
+            <p class="aside-label">Contratados</p>
+          </div>
+          <div class="aside-card">
+            <p class="aside-kpi">30%</p>
+            <p class="aside-label">Internacional</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="about-card" data-expandable>
+          <div class="card-top">
+            <div class="card-icon"><i data-lucide="users" aria-hidden="true"></i></div>
+            <div>
+              <p class="card-subtitle">Formación</p>
+              <h3 class="card-title">Talent Up</h3>
+            </div>
+          </div>
+          <p class="card-description">
+            Formación de talento con propósito y tecnología actual. Aprendizaje 100% práctico con proyectos reales.
+          </p>
+          <button class="btn-expand" type="button" aria-expanded="false">
+            Ver más <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <ul class="card-details">
+            <li>Programas intensivos de 6 a 12 meses</li>
+            <li>Stack tecnológico actualizado: React, Node.js, Java, Spring Boot, bases de datos</li>
+            <li>Metodología basada en proyectos reales con empresas</li>
+            <li>Desarrollo de habilidades blandas: comunicación, trabajo en equipo y liderazgo</li>
+            <li>Acompañamiento personalizado con mentores de la industria</li>
+          </ul>
+        </div>
+
+        <div class="about-card" data-expandable>
+          <div class="card-top">
+            <div class="card-icon"><i data-lucide="zap" aria-hidden="true"></i></div>
+            <div>
+              <p class="card-subtitle">Empleabilidad</p>
+              <h3 class="card-title">Tech Leap</h3>
+            </div>
+          </div>
+          <p class="card-description">
+            Conectamos talento con oportunidades reales. Selección estratégica alineada al perfil técnico y cultural.
+          </p>
+          <button class="btn-expand" type="button" aria-expanded="false">
+            Ver más <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <ul class="card-details">
+            <li>Proceso de matching entre candidatos y empresas según perfil técnico y cultural</li>
+            <li>Talent Pool con +500 desarrolladores formados y evaluados</li>
+            <li>Garantía de reemplazo durante el periodo de prueba</li>
+            <li>Reducción del 60% en tiempo de contratación</li>
+            <li>Seguimiento post-colocación para asegurar la integración</li>
+          </ul>
+        </div>
+
+        <div class="about-card" data-expandable>
+          <div class="card-top">
+            <div class="card-icon"><i data-lucide="shield" aria-hidden="true"></i></div>
+            <div>
+              <p class="card-subtitle">Desarrollo & Tecnología</p>
+              <h3 class="card-title">Full Services</h3>
+            </div>
+          </div>
+          <p class="card-description">
+            Células de desarrollo enfocadas en tus objetivos. Software end-to-end y automatización con IA.
+          </p>
+          <button class="btn-expand" type="button" aria-expanded="false">
+            Ver más <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <ul class="card-details">
+            <li>Equipos dedicados de desarrollo bajo modalidad outsourcing</li>
+            <li>Desarrollo de software a la medida: web, móvil y backend</li>
+            <li>Automatización de procesos con inteligencia artificial</li>
+            <li>Consultoría tecnológica y transformación digital</li>
+            <li>Soporte continuo y escalabilidad según necesidades del negocio</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section id="methodology" class="section section-methodology">
+    <div class="mapaglobal">
+    <div class="paises-box" aria-hidden="true">
+      <img class="paises-bg"
+        src="https://togrowagencia.com/wp-content/uploads/2025/10/Mp-PAISES-CIRCULO1.png"
+        alt="" loading="lazy" decoding="async" />
+
+      <img class="paises-nombres"
+        src="https://togrowagencia.com/wp-content/uploads/2025/10/Circulo-paises9.png"
+        alt="" loading="lazy" decoding="async" />
+    </div>
+    </div>
+    <div class="cuadroinformativo">
+    <div class="container">
+    
+      <div class="section-header">
+        
+        <h2 class="section-title">Aprendizaje que <span class="text-gradient">sí escala</span></h2>
+        <p class="section-description">
+          Un modelo intensivo que combina práctica real, acompañamiento y mentalidad de entrega.
+        </p>
+      </div>
+
+      
+    
+      <div class="stats-grid" id="statsGrid">
+        <!-- 1 -->
+        <div class="stat-card flip-card" data-flip aria-label="Horas Prácticas" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <i data-lucide="clock" aria-hidden="true"></i>
+              <p class="stat-value" data-count="1600">+0</p>
+              <p class="stat-label">Horas Prácticas</p>
+            </div>
+
+            <div class="flip-face flip-back" aria-label="Detalle Horas Prácticas">
+              <p class="flip-title">Horas Prácticas</p>
+              <p class="flip-text">
+                Entrenamiento intensivo con retos reales, pair programming y prácticas guiadas.
+              </p>
+              <ul class="flip-list">
+                <li>Proyectos por sprint</li>
+                <li>Mentoría y code review</li>
+                <li>Entrega con portafolio</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="stat-card flip-card" data-flip aria-label="Presencial" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <i data-lucide="monitor" aria-hidden="true"></i>
+              <p class="stat-value">100%</p>
+              <p class="stat-label">Presencial</p>
+              
+            </div>
+
+            <div class="flip-face flip-back" aria-label="Detalle Presencial">
+              <p class="flip-title">Presencial</p>
+              <p class="flip-text">
+                Aprendizaje con dinámica de equipo, acompañamiento cercano y sesiones prácticas.
+              </p>
+              <ul class="flip-list">
+                <li>Ambiente tipo tech hub</li>
+                <li>Rutina y disciplina</li>
+                <li>Networking</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="stat-card flip-card" data-flip aria-label="Años de Experiencia" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <i data-lucide="code" aria-hidden="true"></i>
+              <p class="stat-value" data-count="8">+0</p>
+              <p class="stat-label">Años de Experiencia</p>
+            </div>
+
+            <div class="flip-face flip-back" aria-label="Detalle Experiencia">
+              <p class="flip-title">Experiencia</p>
+              <p class="flip-text">
+                Metodología probada con enfoque en empleabilidad y habilidades técnicas reales.
+              </p>
+              <ul class="flip-list">
+                <li>Currículo actualizado</li>
+                <li>Stack moderno</li>
+                <li>Pruebas técnicas</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="stat-card flip-card" data-flip aria-label="Acceso Tecnológico" tabindex="0">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <i data-lucide="brain" aria-hidden="true"></i>
+              <p class="stat-value">24/7</p>
+              <p class="stat-label">Acceso Tecnológico</p>
+
+            </div>
+
+            <div class="flip-face flip-back" aria-label="Detalle Acceso Tecnológico">
+              <p class="flip-title">Acceso 24/7</p>
+              <p class="flip-text">
+                Recursos, laboratorios y herramientas para practicar y avanzar a tu ritmo.
+              </p>
+              <ul class="flip-list">
+                <li>Contenido y repos</li>
+                <li>Retos y guías</li>
+                <li>Soporte y comunidad</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (Opcional) aquí seguirían tus methodology-cards si las tienes -->
+      <!-- <div class="methodology-grid">...</div> -->
+    </div>
+</div>
+  </section>
+  
+
+  <!-- CAMPER PROFILE -->
+  <section class="section section-camper">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Perfil Camper</p>
+        <h2 class="section-title">Comunidad diversa en <span class="text-gradient">crecimiento</span></h2>
+      </div>
+
+      <div class="profile-grid">
+        <div class="profile-card">
+          <i data-lucide="graduation-cap" aria-hidden="true"></i>
+          <h3>Entrenamiento Ejecutivo</h3>
+          <p>Habilidades blandas, mindset laboral y cultura profesional</p>
+        </div>
+        <div class="profile-card">
+          <i data-lucide="globe" aria-hidden="true"></i>
+          <h3>Inglés B1 - C1</h3>
+          <p>Comunicación fluida con equipos internacionales</p>
+        </div>
+        <div class="profile-card">
+          <i data-lucide="briefcase" aria-hidden="true"></i>
+          <h3>Simulación Laboral</h3>
+          <p>Protocolo empresarial y eficiencia productiva</p>
+        </div>
+        <div class="profile-card">
+          <i data-lucide="trending-up" aria-hidden="true"></i>
+          <h3>Inserción Corporativa</h3>
+          <p>Formados para saber cómo se trabaja en la industria</p>
+        </div>
+      </div>
+
+      <div class="tech-stack">
+        <h3>Nuestra Formación Tecnológica</h3>
+        <div class="tech-tags">
+          <span>React</span><span>Node.js</span><span>Express</span><span>Spring Boot</span>
+          <span>C#</span><span>Laravel</span><span>MongoDB</span><span>PostgreSQL</span>
+          <span>SQL Server</span><span>MySQL</span><span>Python</span><span>TypeScript</span>
+          <span>ChatBots IA</span><span>Fine Tuning</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section section-services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Servicios</p>
+        <h2 class="section-title">Planes de <span class="text-gradient">Talent Pool</span></h2>
+        <p class="section-description">Tres soluciones diseñadas para cubrir todas tus necesidades de talento tecnológico.</p>
+      </div>
+
+      <div class="plans-grid">
+        <div class="plan-card">
+          <p class="plan-category">Talent Pool</p>
+          <h3 class="plan-name">Junior Basic</h3>
+          <p class="plan-price">$1.000.000</p>
+          <ul class="plan-features">
+            <li><i data-lucide="check" aria-hidden="true"></i> Score &gt;60</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> Formación a la medida</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> 2 hojas de vida por vacante</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> Garantía: 1 mes</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> Experiencia Campuslands</li>
+          </ul>
+          <a href="https://wa.me/573236736422?text=Hola,%20quiero%20información%20sobre%20el%20plan%20Junior%20Basic"
+             class="btn-plan" target="_blank" rel="noopener noreferrer">Solicitar</a>
+        </div>
+
+        <div class="plan-card plan-highlighted">
+          <span class="plan-badge">Más Popular</span>
+          <p class="plan-category">Talent Pool</p>
+          <h3 class="plan-name">Junior Plus</h3>
+          <p class="plan-price">$1.500.000</p>
+          <ul class="plan-features">
+            <li><i data-lucide="check" aria-hidden="true"></i> Score &gt;60</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> Formación a la medida</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> 2 hojas de vida por vacante</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> Garantía: 1 mes</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> Experiencia laboral previa</li>
+          </ul>
+          <a href="https://wa.me/573236736422?text=Hola,%20quiero%20información%20sobre%20el%20plan%20Junior%20Plus"
+             class="btn-plan btn-plan-accent" target="_blank" rel="noopener noreferrer">Solicitar</a>
+        </div>
+
+        <div class="plan-card">
+          <p class="plan-category">Talent Pool</p>
+          <h3 class="plan-name">Dev Mid</h3>
+          <p class="plan-price">1 salario Camper</p>
+          <ul class="plan-features">
+            <li><i data-lucide="check" aria-hidden="true"></i> Score &gt;60</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> Formación a la medida</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> 2 hojas de vida por vacante</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> Garantía: 2 meses</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> Amplia experiencia laboral</li>
+          </ul>
+          <a href="https://wa.me/573236736422?text=Hola,%20quiero%20información%20sobre%20el%20plan%20Dev%20Mid"
+             class="btn-plan" target="_blank" rel="noopener noreferrer">Solicitar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact" class="section section-impact">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Impacto</p>
+        <h2 class="section-title">Impacto <span class="text-gradient">Económico y Social</span></h2>
+        <p class="section-description">El 85% de nuestros partners empresariales ha reducido sus costos de contratación.</p>
+      </div>
+
+      <div class="impact-stats">
+        <div class="impact-card">
+          <i data-lucide="trending-up" aria-hidden="true"></i>
+          <p class="impact-value">80%</p>
+          <p class="impact-label">Empleabilidad</p>
+        </div>
+        <div class="impact-card">
+          <i data-lucide="users" aria-hidden="true"></i>
+          <p class="impact-value" data-count="800">+0</p>
+          <p class="impact-label">Contratados</p>
+        </div>
+        <div class="impact-card">
+          <i data-lucide="globe" aria-hidden="true"></i>
+          <p class="impact-value">30%</p>
+          <p class="impact-label">Ubicación Internacional</p>
+        </div>
+        <div class="impact-card">
+          <i data-lucide="dollar-sign" aria-hidden="true"></i>
+          <p class="impact-value">$3.1M+</p>
+          <p class="impact-label">USD anuales aportados</p>
+        </div>
+      </div>
+
+      <div class="impact-why">
+        <h3>¿Por qué <span class="text-gradient">Campuslands</span>?</h3>
+        <div class="why-grid">
+          <div class="why-item">
+            <h4>Selección personalizada</h4>
+            <p>Preselección alineada al perfil técnico y cultural de la empresa</p>
+          </div>
+          <div class="why-item">
+            <h4>+1.600 horas prácticas</h4>
+            <p>vs 400-600 horas de formación tradicional</p>
+          </div>
+          <div class="why-item">
+            <h4>Inglés B1-C1</h4>
+            <p>Inglés técnico orientado a TI, no nivel básico A1-A2</p>
+          </div>
+          <div class="why-item">
+            <h4>Gestión total</h4>
+            <p>Pagos, seguridad social, reportes – todo gestionado por Campuslands</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+
+
+
+  <!-- CLIENTS -->
+  <section class="section-clients">
+    <p class="clients-title">Empresas que confían en nuestro talento</p>
+    <div class="marquee-wrap">
+      <div class="marquee-track marquee-track--left" aria-hidden="true">
+        <span>Vensure</span><span>PrismHR</span><span>Construsoft</span><span>SmartData</span>
+        <span>Dataglobal</span><span>Disfarma</span><span>Conexus-IT</span><span>Aliaddo</span>
+        <span>PIX Robotics</span><span>WWSE</span><span>Casa de Software</span><span>MacondoTek</span>
+        <span>Conexalas</span><span>Lechecol</span>
+        <span>Vensure</span><span>PrismHR</span><span>Construsoft</span><span>SmartData</span>
+        <span>Dataglobal</span><span>Disfarma</span><span>Conexus-IT</span><span>Aliaddo</span>
+        <span>PIX Robotics</span><span>WWSE</span><span>Casa de Software</span><span>MacondoTek</span>
+        <span>Conexalas</span><span>Lechecol</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-contact">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Contacto</p>
+        <h2 class="section-title">¿Listo para <span class="text-gradient">escalar tu equipo</span>?</h2>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-info">
+          <h3>Karolain Huérfano</h3>
+          <p class="contact-role">Ejecutiva de Relaciones Comerciales</p>
+          <div class="contact-details">
+            <a href="tel:+573236736422"><i data-lucide="phone" aria-hidden="true"></i> +57 323 673 6422</a>
+            <a href="mailto:karolain.huerfano@campuslands.com"><i data-lucide="mail" aria-hidden="true"></i> karolain.huerfano@campuslands.com</a>
+            <p><i data-lucide="map-pin" aria-hidden="true"></i> Floridablanca, Colombia</p>
+          </div>
+        </div>
+
+        <div class="contact-buttons">
+          <a href="mailto:karolain.huerfano@campuslands.com" class="btn-primary btn-lg">Enviar Correo</a>
+          <a href="https://wa.me/573236736422" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-lg">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Campuslands. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL DE CONTACTO -->
+  <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Cerrar modal" type="button">
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+
+      <p class="section-tag">Hablemos</p>
+      <h2 id="modal-title" class="modal-title">Solicita tu <span class="text-gradient">Talent Pool</span></h2>
+      <p class="modal-subtitle">Escríbenos y te contactamos en menos de 24 horas.</p>
+
+      <div class="modal-actions">
+        <a href="mailto:karolain.huerfano@campuslands.com" class="btn-primary btn-lg modal-btn">
+          <i data-lucide="mail" aria-hidden="true"></i> Enviar Correo
+        </a>
+        <a href="https://wa.me/573236736422" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-lg modal-btn modal-btn--wa">
+          <i data-lucide="message-circle" aria-hidden="true"></i> WhatsApp
+        </a>
+      </div>
+
+      <div class="modal-contact-info">
+        <p><i data-lucide="phone" aria-hidden="true"></i> +57 323 673 6422</p>
+        <p><i data-lucide="map-pin" aria-hidden="true"></i> Floridablanca, Colombia</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANTALLA AZUL DE TRANSICIÓN (✅ corregido el texto roto) -->
+  <div id="page-transition" class="page-transition" aria-hidden="true">
+    <div class="transition-content">
+      <img src="IMG/logoCampus-removebg-preview.png" alt="" class="transition-logo-img" loading="lazy" decoding="async" width="64" height="64" />
+      <span class="transition-brand">Campuslands</span>
+      <div class="transition-bar-wrap">
+        <div class="transition-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="JS/script.js" defer></script>
+</body>
+</html>
