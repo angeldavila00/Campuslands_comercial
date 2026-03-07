@@ -1,0 +1,64 @@
+/* ==========================================
+   CLIENTS — Marquee
+   ========================================== */
+.section-clients {
+    padding: 3.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-background);
+}
+
+.clients-title {
+    text-align: center;
+    color: var(--color-muted-foreground);
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 700;
+    margin-bottom: 1.75rem;
+}
+
+.marquee-wrap {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    margin-bottom: .75rem;
+}
+
+.marquee-wrap:last-of-type { margin-bottom: 0; }
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    gap: .6rem;
+    will-change: transform;
+    contain: layout style;
+}
+
+.marquee-track--left  { animation: marqueeLeft  30s linear infinite; }
+.marquee-track--right { animation: marqueeRight 30s linear infinite; }
+
+.marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+
+.marquee-track span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: .6rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: color-mix(in hsl, var(--color-background) 70%, var(--color-muted) 30%);
+    font-weight: 800;
+    font-size: .88rem;
+    color: var(--color-muted-foreground);
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    cursor: default;
+}
+
+.marquee-track span:hover {
+    background: color-mix(in hsl, var(--color-accent) 10%, var(--color-background) 90%);
+    border-color: var(--color-accent);
+    color: var(--color-foreground);
+    transform: translateY(-2px);
+}

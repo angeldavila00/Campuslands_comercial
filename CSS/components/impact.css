@@ -1,0 +1,51 @@
+/* ==========================================
+   IMPACT
+   ========================================== */
+.impact-card {
+    text-align: center;
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-radius: var(--r2);
+    padding: 1.5rem;
+    box-shadow: 0 18px 60px rgba(16, 24, 40, .18);
+}
+
+.impact-card i {
+    width: 28px;
+    height: 28px;
+    color: var(--color-accent);
+    margin: 0 auto .75rem;
+}
+
+.impact-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    margin-bottom: .35rem;
+}
+
+.impact-label { color: rgba(255, 255, 255, .75); }
+
+.impact-why {
+    background: var(--color-secondary);
+    border: 1px solid color-mix(in hsl, var(--color-border) 75%, white 25%);
+    border-radius: var(--r2);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    box-shadow: var(--shadow-1);
+}
+
+.impact-why h3 { text-align: center; color: var(--color-primary); margin-bottom: 1.25rem; }
+
+.why-item {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--r2);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-1);
+    transition: var(--transition-base);
+}
+
+.why-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-2); }
+
+.why-item h4 { color: var(--color-primary); margin-bottom: .35rem; }
+.why-item p  { color: var(--color-muted-foreground); }

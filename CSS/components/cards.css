@@ -1,0 +1,154 @@
+/* ==========================================
+   CARDS — About, Profile, Tech stack
+   ========================================== */
+
+/* ── About card ── */
+.about-card {
+    background: var(--color-background);
+    border: 1px solid color-mix(in hsl, var(--color-border) 75%, white 25%);
+    border-radius: var(--r2);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-1);
+    transition: var(--transition-base);
+}
+
+.about-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-2);
+}
+
+.card-top {
+    display: flex;
+    gap: .9rem;
+    align-items: center;
+    margin-bottom: .75rem;
+}
+
+.card-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+    background: rgba(27, 32, 82, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon i { width: 22px; height: 22px; color: var(--color-primary); }
+
+.card-subtitle {
+    color: var(--color-accent);
+    font-size: 1rem;
+    font-weight: 900;
+    margin-bottom: .15rem;
+}
+
+.card-title { font-size: 1.4rem; color: var(--color-primary); }
+
+.card-description {
+    color: var(--color-muted-foreground);
+    font-size: 1.1rem;
+    margin-bottom: .6rem;
+    line-height: 1.65;
+}
+
+.btn-expand {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-weight: 900;
+    font-size: 1.05rem;
+    cursor: pointer;
+    padding: .75rem 0 0;
+    font-family: inherit;
+}
+
+.btn-expand i { width: 18px; height: 18px; transition: transform .25s ease; }
+.btn-expand.expanded i { transform: rotate(180deg); }
+
+.card-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease-in-out, margin-top .2s ease;
+    margin-top: 0;
+    list-style: none;
+}
+
+.card-details.show { max-height: 520px; margin-top: 1rem; }
+
+.card-details li {
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+    color: var(--color-muted-foreground);
+    font-size: 1.1rem;
+    margin-bottom: .6rem;
+}
+
+.card-details li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-accent);
+    margin-top: .45rem;
+    flex-shrink: 0;
+}
+
+/* ── Profile card (Camper) ── */
+.profile-card {
+    background: var(--color-secondary);
+    border: 1px solid color-mix(in hsl, var(--color-border) 75%, white 25%);
+    box-shadow: 10px 0 20px var(--color-primary);
+    border-radius: var(--r2);
+    padding: 1.25rem;
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.profile-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-2); }
+
+.profile-card i {
+    width: 28px;
+    height: 28px;
+    color: var(--color-accent);
+    margin: 0 auto .7rem;
+}
+
+.profile-card h3 { color: var(--color-primary); font-size: 1rem; margin-bottom: .35rem; }
+.profile-card p  { color: var(--color-muted-foreground); font-size: 1.05rem; }
+
+/* ── Tech stack ── */
+.tech-stack {
+    background: var(--color-secondary);
+    border-radius: var(--r2);
+    padding: 1.75rem;
+    box-shadow: 10px 0 20px var(--color-primary);
+}
+
+.tech-stack h3 { text-align: center; color: var(--color-primary); margin-bottom: 1rem; }
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .6rem;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tech-item img { width: 20px; height: 20px; }
+
+.tech-tags span {
+    padding: .55rem .9rem;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1rem;
+}

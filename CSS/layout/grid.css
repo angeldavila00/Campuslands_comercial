@@ -1,0 +1,84 @@
+/* ==========================================
+   GRIDS — Layouts reutilizables
+   ========================================== */
+
+/* ── Hero ── */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* ── Section split (texto + aside) ── */
+.section-split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 1.5rem;
+    align-items: start;
+    margin-bottom: 1.5rem;
+}
+
+.split-aside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.aside-card {
+    border-radius: var(--r2);
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+    padding: 1.15rem;
+}
+
+.aside-kpi {
+    font-size: 1.6rem;
+    font-weight: 900;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.aside-label {
+    color: var(--color-muted-foreground);
+    font-weight: 800;
+}
+
+/* ── Plans / Services ── */
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.6rem;
+    align-items: start;
+}
+
+/* ── Profile (Camper) ── */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* ── Impact ── */
+.impact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* ── Cards genérico ── */
+.cards-grid {
+    display: grid;
+    gap: 1rem;
+}

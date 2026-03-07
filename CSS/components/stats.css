@@ -1,0 +1,164 @@
+/* ==========================================
+   STATS — Flip cards
+   ========================================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+.stat-card.flip-card {
+    position: relative;
+    text-align: center;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: var(--r2);
+    perspective: 1000px;
+    width: 100%;
+}
+
+.stat-card.flip-card:hover .flip-front {
+    box-shadow: 0 20px 55px rgba(0, 0, 0, .28), 0 0 0 1px rgba(237, 160, 54, .18);
+    border-color: rgba(255, 255, 255, .22);
+    background: rgba(255, 255, 255, .10);
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    min-height: 280px;
+    transform-style: preserve-3d;
+    transition:
+            transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1),
+            min-height 0.45s ease;
+    border-radius: var(--r2);
+}
+
+.stat-card.flip-card.is-flipped .flip-inner,
+.stat-card.flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+    aspect-ratio: auto;
+    min-height: 380px;
+}
+
+.flip-face {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--r2);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: grid;
+    align-content: center;
+    gap: .4rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, .12);
+    background: rgba(255, 255, 255, .06);
+    transition: var(--transition-base);
+    height: auto;
+}
+
+/* ── Front ── */
+.flip-front {
+    display: grid;
+    place-content: center;
+}
+
+.flip-front i {
+    width: 28px;
+    height: 28px;
+    color: var(--color-accent);
+    margin: 0 auto .6rem;
+}
+
+.flip-front .stat-value {
+    font-size: 2.3rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    margin-bottom: .1rem;
+}
+
+.flip-front .stat-label {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1rem;
+}
+
+.flip-hint {
+    margin-top: .45rem;
+    font-size: .92rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, .65);
+    opacity: .9;
+}
+
+/* ── Back ── */
+.flip-back {
+    transform: rotateY(180deg);
+    text-align: left;
+    align-content: start;
+    gap: .65rem;
+    overflow: visible;
+}
+
+.flip-title {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, .92);
+}
+
+.flip-text {
+    color: rgba(255, 255, 255, .76);
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.flip-list {
+    list-style: none;
+    display: grid;
+    gap: .45rem;
+    margin: .25rem 0 .75rem;
+    padding: 0;
+}
+
+.flip-list li {
+    display: flex;
+    gap: .55rem;
+    align-items: flex-start;
+    color: rgba(255, 255, 255, .78);
+    font-size: 1rem;
+}
+
+.flip-list li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-accent);
+    margin-top: .45rem;
+    flex-shrink: 0;
+}
+
+.flip-close {
+    margin-top: auto;
+    justify-self: start;
+    border: 1px solid rgba(255, 255, 255, .18);
+    background: rgba(0, 0, 0, .16);
+    color: rgba(255, 255, 255, .9);
+    font-weight: 900;
+    border-radius: 12px;
+    padding: .6rem .85rem;
+    cursor: pointer;
+    transition: var(--transition-base);
+    font-family: inherit;
+}
+
+.flip-close:hover {
+    transform: translateY(-2px);
+    background: rgba(0, 0, 0, .22);
+}
+
+.stat-card.flip-card:focus-within .flip-face {
+    box-shadow: 0 0 0 4px rgba(237, 137, 54, 0.22);
+}

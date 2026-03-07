@@ -1,0 +1,43 @@
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+/* ── Focus visible global ── */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-plan:focus-visible,
+.btn-contact:focus-visible {
+    box-shadow: 0 0 0 4px rgba(237, 137, 54, 0.28);
+}
+
+.stat-card.flip-card:focus-within .flip-face {
+    box-shadow: 0 0 0 4px rgba(237, 137, 54, 0.22);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .marquee-track { animation: none; }
+
+    .hero-scroll span { animation: none; }
+
+    .flip-inner { transition: none !important; }
+
+    .stat-card.flip-card:hover .flip-front { transform: none !important; }
+
+    .section-methodology .paises-nombres {
+        animation: none;
+        transform: translateX(var(--textX)) scale(var(--textScale));
+    }
+
+    .section-services .plan-card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}

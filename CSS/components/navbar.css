@@ -1,0 +1,123 @@
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(27, 32, 82, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 10px 30px rgba(16, 24, 40, 0.18);
+    padding: 0.35rem 0;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.6rem;
+    gap: 14px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-primary-foreground);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 900;
+    letter-spacing: .2px;
+}
+
+.nav-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, .25));
+}
+
+.nav-title {
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 1.15rem;
+}
+
+.nav-menu a {
+    color: rgba(255, 255, 255, 0.78);
+    padding: 0.55rem 0.75rem;
+    border-radius: 12px;
+    transition: var(--transition-base);
+    font-weight: 700;
+}
+
+.nav-menu a:hover {
+    color: var(--color-primary-foreground);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-contact {
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+    padding: 0.7rem 1.15rem;
+    border-radius: 14px;
+    font-weight: 900;
+    transition: var(--transition-base);
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: inherit;
+}
+
+.btn-contact:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0;
+    transition: var(--transition-base);
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 999px;
+    transition: var(--transition-base);
+}
+
+.nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-cta-mobile {
+    display: none;
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+    padding: 0.55rem 0.9rem;
+    border-radius: 12px;
+    font-weight: 900;
+}

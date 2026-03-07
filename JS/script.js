@@ -370,32 +370,45 @@ function initFlipStats() {
 }
 
 // ==========================================
-// COUNT UP ANIMATION — Profesional
+// COUNT UP ANIMATION — Respeta prefijo/sufijo
 // ==========================================
 function initCountUp() {
-const counters = document.querySelectorAll('[data-count]');
+  const counters = document.querySelectorAll('[data-count]');
   if (!counters.length) return;
 
   const duration = 2000;
-
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+  const getAffix = (el) => {
+    const raw = el.textContent.trim();
+    const number = el.dataset.count;
+
+    // Busca si el símbolo está antes o después del número
+    const match = raw.match(/^([^0-9]*)[\d,]+([^0-9]*)$/);
+
+    return {
+      prefix: match ? match[1] : '',
+      suffix: match ? match[2] : ''
+    };
+  };
 
   const animateCounter = (el) => {
     const target = parseInt(el.dataset.count, 10);
+    const { prefix, suffix } = getAffix(el);
     const startTime = performance.now();
 
     const update = (currentTime) => {
-      const elapsed = currentTime - startTime;
+      const elapsed  = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = easeOutCubic(progress);
-      const value = Math.floor(eased * target);
+      const eased    = easeOutCubic(progress);
+      const value    = Math.floor(eased * target);
 
-      el.textContent = `+${value.toLocaleString()}`;
+      el.textContent = `${prefix}${value.toLocaleString()}${suffix}`;
 
       if (progress < 1) {
         requestAnimationFrame(update);
       } else {
-        el.textContent = `+${target.toLocaleString()}`;
+        el.textContent = `${prefix}${target.toLocaleString()}${suffix}`;
       }
     };
 

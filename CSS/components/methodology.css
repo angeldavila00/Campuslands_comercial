@@ -1,0 +1,125 @@
+/* ==========================================
+   METHODOLOGY
+   ========================================== */
+.section-methodology {
+    --mapScale: 0.50;
+    --textScale: 0.60;
+    --mapX: -48%;
+    --textX: -49%;
+    --spinSpeed: 15s;
+
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+}
+
+.section-methodology .section-title       { color: var(--color-primary-foreground); }
+.section-methodology .section-description { color: rgba(255, 255, 255, .75); }
+
+/* ── Mapa izquierdo ── */
+.section-methodology .paises-left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(120px, 18vw, 260px);
+    height: clamp(120px, 18vw, 260px);
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.section-methodology .container {
+    position: relative;
+    z-index: 2;
+}
+
+.section-methodology .paises-bg,
+.section-methodology .paises-nombres {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform-origin: 50% 50%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.section-methodology .paises-bg {
+    z-index: 1;
+    transform: translateX(var(--mapX)) scale(var(--mapScale));
+}
+
+.section-methodology .paises-nombres {
+    z-index: 2;
+    transform: translateX(var(--textX)) scale(var(--textScale)) rotate(0deg);
+    will-change: transform;
+}
+
+/* ── Cuadro informativo derecho ── */
+.cuadroinformativo {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.cuadroinformativo .container { padding: 0; }
+
+/* ── Methodology cards ── */
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.methodology-card {
+    padding: 1.25rem;
+    border-radius: var(--r2);
+    border: 1px solid rgba(255, 255, 255, .12);
+    background: rgba(255, 255, 255, .06);
+    height: 188px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    cursor: default;
+}
+
+.methodology-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, .11);
+    border-color: rgba(255, 255, 255, .26);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .28);
+}
+
+.methodology-card:hover h3 {
+    text-shadow: 0 0 18px rgba(237, 160, 54, 0.45);
+}
+
+.methodology-card h3 {
+    color: var(--color-accent);
+    margin-bottom: .75rem;
+    transition: text-shadow 0.3s ease;
+}
+
+.methodology-card ul { list-style: none; }
+
+.methodology-card li {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    color: rgba(255, 255, 255, .82);
+    font-size: 1.05rem;
+    margin-bottom: .6rem;
+}
+
+.methodology-card li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-accent);
+}

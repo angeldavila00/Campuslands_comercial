@@ -1,0 +1,34 @@
+/* ==========================================
+   MAIN.CSS — Punto de entrada
+   ========================================== */
+
+/* ── BASE ── */
+@import './base/variables.css';
+@import './base/reset.css';
+@import './base/typography.css';
+
+/* ── LAYOUT ── */
+@import './layout/container.css';
+@import './layout/grid.css';
+
+/* ── COMPONENTS ── */
+@import './components/navbar.css';
+@import './components/hero.css';
+@import './components/cards.css';
+@import './components/stats.css';
+@import './components/methodology.css';
+@import './components/services.css';
+@import './components/impact.css';
+@import './components/clients.css';
+@import './components/contact.css';
+@import './components/modal.css';
+
+/* ── SECTIONS ── */
+@import './sections/about.css';
+
+/* ── UTILITIES ── */
+@import './utilities/animations.css';
+@import './utilities/accessibility.css';
+
+/* ── RESPONSIVE (siempre al final) ── */
+@import './responsive/breakpoints.css';
