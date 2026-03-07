@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   initPageTransition();
   initFlipStats();
-  initCountUp(); // 👈 IMPORTANTE
+  initCountUp();
+  initMapaScrollRotate();
 
   if (window.matchMedia('(min-width: 769px)').matches) {
     initParallax();
@@ -296,13 +297,7 @@ function initParallax() {
   );
 }
 
-// ==========================================
-// ✅ FLIP STATS (Metodología)
-// Requiere:
-// - <div class="stats-grid" id="statsGrid">...</div>
-// - cada tarjeta: <div class="stat-card flip-card" data-flip>...</div>
-// - botón volver (opcional): <button class="flip-close">Volver</button>
-// ==========================================
+
 function initFlipStats() {
   const grid = document.getElementById('statsGrid');
   if (!grid) return;
@@ -417,4 +412,48 @@ const counters = document.querySelectorAll('[data-count]');
   }, { threshold: 0.6 });
 
   counters.forEach(counter => observer.observe(counter));
+}
+function initMapaScrollRotate(){
+
+  const mapa = document.querySelector('.paises-nombres');
+  const section = document.querySelector('.section-methodology');
+
+  if(!mapa || !section) return;
+
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+
+    if(!ticking){
+
+      requestAnimationFrame(() => {
+
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        const sectionTop = rect.top;
+        const sectionBottom = rect.bottom;
+
+        // SOLO cuando la sección está visible
+        if(sectionTop < windowHeight && sectionBottom > 0){
+
+          const progress = (windowHeight - sectionTop) / (windowHeight + rect.height);
+
+          const rotation = progress * 360;
+
+          mapa.style.transform =
+              `translateX(var(--textX)) scale(var(--textScale)) rotate(${rotation}deg)`;
+
+        }
+
+        ticking = false;
+
+      });
+
+      ticking = true;
+
+    }
+
+  }, { passive:true });
+
 }
