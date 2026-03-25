@@ -78,6 +78,21 @@
     box-shadow: 0 18px 55px rgba(16, 24, 40, 0.14);
 }
 
+/* ── Badge "Más Popular" ──
+   FIX: faltaban los estilos del plan-badge; aparecía sin formato. */
+.section-services .plan-badge {
+    display: inline-block;
+    background: var(--gradient-accent);
+    color: var(--color-accent-foreground);
+    font-size: .78rem;
+    font-weight: 900;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .3rem .75rem;
+    border-radius: 999px;
+    margin-bottom: .6rem;
+}
+
 /* ── Tipografía ── */
 .section-services .plan-category {
     color: var(--color-accent);

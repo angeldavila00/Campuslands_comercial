@@ -68,7 +68,7 @@
 
           <div class="hero-stats">
             <div class="mini-stat">
-              <p class="mini-stat__value"data-count="1600">+1600</p>
+              <p class="mini-stat__value" data-count="1600">+1600</p>
               <p class="mini-stat__label">Horas prácticas</p>
             </div>
             <div class="mini-stat">
@@ -95,7 +95,7 @@
               <div class="panel-kpi">
                 <i data-lucide="clock" aria-hidden="true"></i>
                 <div>
-                  <p class="kpi-value" data-count="1600">+0</p>
+                  <p class="kpi-value" data-count="1600">+1600</p>
                   <p class="kpi-label">horas</p>
                 </div>
               </div>
@@ -142,7 +142,7 @@
 
         <div class="split-aside">
           <div class="aside-card">
-            <p class="aside-kpi" data-count="800">+0</p>
+            <p class="aside-kpi" data-count="800">+800</p>
             <p class="aside-label">Contratados</p>
           </div>
           <div class="aside-card">
@@ -257,7 +257,7 @@
           <div class="flip-inner">
             <div class="flip-face flip-front">
               <i data-lucide="clock" aria-hidden="true"></i>
-              <p class="stat-value" data-count="1600">+0</p>
+              <p class="stat-value" data-count="1600">+1600</p>
               <p class="stat-label">Horas Prácticas</p>
             </div>
 
@@ -271,7 +271,8 @@
                 <li>Mentoría y code review</li>
                 <li>Entrega con portafolio</li>
               </ul>
-
+              <!-- FIX: botón "Volver" añadido — el JS lo espera para cerrar la card -->
+              <button class="flip-close" type="button">Volver</button>
             </div>
           </div>
         </div>
@@ -283,7 +284,6 @@
               <i data-lucide="monitor" aria-hidden="true"></i>
               <p class="stat-value" data-count="100">100%</p>
               <p class="stat-label">Presencial</p>
-              
             </div>
 
             <div class="flip-face flip-back" aria-label="Detalle Presencial">
@@ -296,7 +296,8 @@
                 <li>Rutina y disciplina</li>
                 <li>Networking</li>
               </ul>
-
+              <!-- FIX: botón "Volver" añadido -->
+              <button class="flip-close" type="button">Volver</button>
             </div>
           </div>
         </div>
@@ -306,7 +307,7 @@
           <div class="flip-inner">
             <div class="flip-face flip-front">
               <i data-lucide="code" aria-hidden="true"></i>
-              <p class="stat-value" data-count="8">+0</p>
+              <p class="stat-value" data-count="8">+8</p>
               <p class="stat-label">Años de Experiencia</p>
             </div>
 
@@ -320,7 +321,8 @@
                 <li>Stack moderno</li>
                 <li>Pruebas técnicas</li>
               </ul>
-
+              <!-- FIX: botón "Volver" añadido -->
+              <button class="flip-close" type="button">Volver</button>
             </div>
           </div>
         </div>
@@ -330,9 +332,8 @@
           <div class="flip-inner">
             <div class="flip-face flip-front">
               <i data-lucide="brain" aria-hidden="true"></i>
-              <p class="stat-value" >24/7</p>
+              <p class="stat-value">24/7</p>
               <p class="stat-label">Acceso Tecnológico</p>
-
             </div>
 
             <div class="flip-face flip-back" aria-label="Detalle Acceso Tecnológico">
@@ -345,14 +346,13 @@
                 <li>Retos y guías</li>
                 <li>Soporte y comunidad</li>
               </ul>
-
+              <!-- FIX: botón "Volver" añadido -->
+              <button class="flip-close" type="button">Volver</button>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- (Opcional) aquí seguirían tus methodology-cards si las tienes -->
-      <!-- <div class="methodology-grid">...</div> -->
     </div>
 </div>
   </section>
@@ -394,72 +394,70 @@
 
         <div class="tech-tags">
 
-    <span class="tech-item">
-      <img src="IMG/tech/react.svg" alt="React">
-      React
-    </span>
+          <span class="tech-item">
+            <img src="IMG/tech/react.svg" alt="React">
+            React
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/typescript.svg" alt="TypeScript">
-      TypeScript
-    </span>
+            <img src="IMG/tech/typescript.svg" alt="TypeScript">
+            TypeScript
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/html5.svg" alt="HTML">
-      HTML/CSS
-    </span>
+            <img src="IMG/tech/html5.svg" alt="HTML">
+            HTML/CSS
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/nodejs.svg" alt="Node">
-      Node.js
-    </span>
+            <img src="IMG/tech/nodejs.svg" alt="Node">
+            Node.js
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/express.svg" alt="Express">
-      Express
-    </span>
+            <img src="IMG/tech/express.svg" alt="Express">
+            Express
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/spring.svg" alt="Spring">
-      Spring Boot
-    </span>
+            <img src="IMG/tech/spring.svg" alt="Spring">
+            Spring Boot
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/csharp.svg" alt="C#">
-      C#
-    </span>
+            <img src="IMG/tech/csharp.svg" alt="C#">
+            C#
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/laravel.svg" alt="Laravel">
-      Laravel
-    </span>
+            <img src="IMG/tech/laravel.svg" alt="Laravel">
+            Laravel
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/python.svg" alt="Python">
-      Python
-    </span>
+            <img src="IMG/tech/python.svg" alt="Python">
+            Python
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/mongodb.svg" alt="MongoDB">
-      MongoDB
-    </span>
+            <img src="IMG/tech/mongodb.svg" alt="MongoDB">
+            MongoDB
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/postgresql.svg" alt="PostgreSQL">
-      PostgreSQLs
-    </span>
+            <img src="IMG/tech/postgresql.svg" alt="PostgreSQL">
+            PostgreSQL
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/sqlserver.svg" alt="SQL Server">
-      SQL Server
-    </span>
+            <img src="IMG/tech/sqlserver.svg" alt="SQL Server">
+            SQL Server
+          </span>
 
           <span class="tech-item">
-      <img src="IMG/tech/mysql.svg" alt="MySQL">
-      MySQL
-    </span>
-
-
+            <img src="IMG/tech/mysql.svg" alt="MySQL">
+            MySQL
+          </span>
 
         </div>
       </div>
@@ -542,7 +540,7 @@
         </div>
         <div class="impact-card">
           <i data-lucide="users" aria-hidden="true"></i>
-          <p class="impact-value" data-count="800">+0</p>
+          <p class="impact-value" data-count="800">+800</p>
           <p class="impact-label">Contratados</p>
         </div>
         <div class="impact-card">
@@ -581,16 +579,24 @@
     </div>
   </section>
 
-
-
-
-
-
   <!-- CLIENTS -->
   <section class="section-clients">
     <p class="clients-title">Empresas que confían en nuestro talento</p>
     <div class="marquee-wrap">
       <div class="marquee-track marquee-track--left" aria-hidden="true">
+        <span>Vensure</span><span>PrismHR</span><span>Construsoft</span><span>SmartData</span>
+        <span>Dataglobal</span><span>Disfarma</span><span>Conexus-IT</span><span>Aliaddo</span>
+        <span>PIX Robotics</span><span>WWSE</span><span>Casa de Software</span><span>MacondoTek</span>
+        <span>Conexalas</span><span>Lechecol</span>
+        <span>Vensure</span><span>PrismHR</span><span>Construsoft</span><span>SmartData</span>
+        <span>Dataglobal</span><span>Disfarma</span><span>Conexus-IT</span><span>Aliaddo</span>
+        <span>PIX Robotics</span><span>WWSE</span><span>Casa de Software</span><span>MacondoTek</span>
+        <span>Conexalas</span><span>Lechecol</span>
+      </div>
+    </div>
+    <!-- FIX: segunda fila de marquee añadida (dirección contraria) -->
+    <div class="marquee-wrap">
+      <div class="marquee-track marquee-track--right" aria-hidden="true">
         <span>Vensure</span><span>PrismHR</span><span>Construsoft</span><span>SmartData</span>
         <span>Dataglobal</span><span>Disfarma</span><span>Conexus-IT</span><span>Aliaddo</span>
         <span>PIX Robotics</span><span>WWSE</span><span>Casa de Software</span><span>MacondoTek</span>
@@ -617,13 +623,13 @@
           <p class="contact-role">Ejecutiva de Relaciones Comerciales</p>
           <div class="contact-details">
             <a href="tel:+573236736422"><i data-lucide="phone" aria-hidden="true"></i> +57 323 673 6422</a>
-            <a href="mailto:karolain.huerfano@campuslands.com"><i data-lucide="mail" aria-hidden="true"></i> karolain.huerfano@campuslands.com</a>
+            <a href="mailto:comercial@campuslands.com"><i data-lucide="mail" aria-hidden="true"></i> comercial@campuslands.com</a>
             <p><i data-lucide="map-pin" aria-hidden="true"></i> Floridablanca, Colombia</p>
           </div>
         </div>
 
         <div class="contact-buttons">
-          <a href="mailto:karolain.huerfano@campuslands.com" class="btn-primary btn-lg">Enviar Correo</a>
+          <a href="mailto:comercial@campuslands.com" class="btn-primary btn-lg">Enviar Correo</a>
           <a href="https://wa.me/573236736422" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-lg">WhatsApp</a>
         </div>
       </div>
@@ -649,7 +655,7 @@
       <p class="modal-subtitle">Escríbenos y te contactamos en menos de 24 horas.</p>
 
       <div class="modal-actions">
-        <a href="mailto:karolain.huerfano@campuslands.com" class="btn-primary btn-lg modal-btn">
+        <a href="mailto:comercial@campuslands.com" class="btn-primary btn-lg modal-btn">
           <i data-lucide="mail" aria-hidden="true"></i> Enviar Correo
         </a>
         <a href="https://wa.me/573236736422" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-lg modal-btn modal-btn--wa">
@@ -664,10 +670,11 @@
     </div>
   </div>
 
-
+  <!-- PAGE TRANSITION OVERLAY -->
+  <!-- FIX: el archivo original estaba cortado aquí; se restaura el HTML completo -->
   <div id="page-transition" class="page-transition" aria-hidden="true">
     <div class="transition-content">
-      <img src="IMG/logoCampus-removebg-preview.png" alt="" class="transition-logo-img" loading="lazy" decoding="async" width="64" height="64" />
+      <img src="IMG/logoCampus-removebg-preview.png" alt="" class="transition-logo-img" loading="lazy" decoding="async" />
       <span class="transition-brand">Campuslands</span>
       <div class="transition-bar-wrap">
         <div class="transition-bar-fill"></div>

@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFlipStats();
   initCountUp();
   initMapaScrollRotate();
+  initPlanCards(); // ✅ AÑADIDO: activa la animación de entrada de las plan-cards
 
   if (window.matchMedia('(min-width: 769px)').matches) {
     initParallax();
@@ -182,6 +183,38 @@ function initScrollAnimations() {
 }
 
 // ==========================================
+// PLAN CARDS — Animación de entrada por dirección
+// ✅ AÑADIDO: Las .plan-card de #services necesitan la clase
+//    .is-visible para hacerse visibles (sin esto quedan opacity:0)
+// ==========================================
+function initPlanCards() {
+  const cards = document.querySelectorAll('.section-services .plan-card');
+  if (!cards.length) return;
+
+  // Respeta prefers-reduced-motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    cards.forEach(card => card.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      // Usamos un pequeño delay escalonado para que entren una por una
+      const visible = entries.filter(e => e.isIntersecting);
+      visible.forEach((entry, i) => {
+        setTimeout(() => {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }, i * 120);
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  cards.forEach(card => observer.observe(card));
+}
+
+// ==========================================
 // NAVBAR SCROLL EFFECT
 // ✅ Usa requestAnimationFrame para no saturar el hilo principal
 // ==========================================
@@ -302,7 +335,7 @@ function initFlipStats() {
   const grid = document.getElementById('statsGrid');
   if (!grid) return;
 
-  // Hacer cada card “clickeable” + accesible por teclado
+  // Hacer cada card "clickeable" + accesible por teclado
   grid.querySelectorAll('[data-flip]').forEach((card) => {
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
@@ -381,7 +414,6 @@ function initCountUp() {
 
   const getAffix = (el) => {
     const raw = el.textContent.trim();
-    const number = el.dataset.count;
 
     // Busca si el símbolo está antes o después del número
     const match = raw.match(/^([^0-9]*)[\d,]+([^0-9]*)$/);
@@ -426,6 +458,7 @@ function initCountUp() {
 
   counters.forEach(counter => observer.observe(counter));
 }
+
 function initMapaScrollRotate(){
 
   const mapa = document.querySelector('.paises-nombres');
