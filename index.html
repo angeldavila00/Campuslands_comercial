@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Campuslands | Talento Tech a tu Medida</title>
-  <meta name="description" content="Formamos talento tecnológico a la medida de tu empresa. Programadores listos desde el primer día." />
+  <meta name="description"
+    content="Formamos talento tecnológico a la medida de tu empresa. Programadores listos desde el primer día." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&display=swap"
+    rel="stylesheet" />
   <!-- Css -->
   <link rel="stylesheet" href="CSS/main.css" />
   <!-- Lucide -->
@@ -19,20 +22,21 @@
 </head>
 
 <body>
-    
-    
+
+
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container nav-container">
       <a href="#top" class="nav-brand" aria-label="Ir al inicio">
-        <img src="IMG/logoCampus-removebg-preview.png" alt="Campuslands Logo" class="nav-logo" width="48" height="48" fetchpriority="high" />
+        <img src="IMG/logoCampus-removebg-preview.png" alt="Campuslands Logo" class="nav-logo" width="48" height="48"
+          fetchpriority="high" />
         <span class="nav-title">Campuslands</span>
       </a>
 
       <div class="nav-menu" id="navMenu">
         <a href="#about" class="nav-link">Nosotros</a>
-        <a href="#services" class="nav-link">Servicios</a>
         <a href="#methodology" class="nav-link">Metodología</a>
+        <a href="#services" class="nav-link">Servicios</a>
         <a href="#impact" class="nav-link">Impacto</a>
         <button class="btn-contact" id="btnOpenModal" type="button">Contactar</button>
       </div>
@@ -228,134 +232,128 @@
   <!-- METHODOLOGY -->
   <section id="methodology" class="section section-methodology">
     <div class="mapaglobal">
-    <div class="paises-box" aria-hidden="true">
-      <img class="paises-bg"
-        src="https://togrowagencia.com/wp-content/uploads/2025/10/Mp-PAISES-CIRCULO1.png"
-        alt="" loading="lazy" decoding="async" />
+      <div class="paises-box" aria-hidden="true">
+        <img class="paises-bg" src="https://togrowagencia.com/wp-content/uploads/2025/10/Mp-PAISES-CIRCULO1.png" alt=""
+          loading="lazy" decoding="async" />
 
-      <img class="paises-nombres"
-        src="https://togrowagencia.com/wp-content/uploads/2025/10/Circulo-paises9.png"
-        alt="" loading="lazy" decoding="async" />
-    </div>
+        <img class="paises-nombres" src="https://togrowagencia.com/wp-content/uploads/2025/10/Circulo-paises9.png"
+          alt="" loading="lazy" decoding="async" />
+      </div>
     </div>
     <div class="cuadroinformativo">
-    <div class="container">
-    
-      <div class="section-header">
-        
-        <h2 class="section-title">Aprendizaje que <span class="text-gradient">sí escala</span></h2>
-        <p class="section-description">
-          Un modelo intensivo que combina práctica real, acompañamiento y mentalidad de entrega.
-        </p>
+      <div class="container">
+
+        <div class="section-header">
+
+          <h2 class="section-title">Aprendizaje que <span class="text-gradient">sí escala</span></h2>
+          <p class="section-description">
+            Un modelo intensivo que combina práctica real, acompañamiento y mentalidad de entrega.
+          </p>
+        </div>
+
+
+
+        <div class="stats-grid" id="statsGrid">
+          <!-- 1 -->
+          <div class="stat-card flip-card" data-flip aria-label="Horas Prácticas" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <i data-lucide="clock" aria-hidden="true"></i>
+                <p class="stat-value" data-count="1600">+1600</p>
+                <p class="stat-label">Horas Prácticas</p>
+              </div>
+
+              <div class="flip-face flip-back" aria-label="Detalle Horas Prácticas">
+                <p class="flip-title">Horas Prácticas</p>
+                <p class="flip-text">
+                  Entrenamiento intensivo con retos reales, pair programming y prácticas guiadas.
+                </p>
+                <ul class="flip-list">
+                  <li>Proyectos por sprint</li>
+                  <li>Mentoría y code review</li>
+                  <li>Entrega con portafolio</li>
+                </ul>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="stat-card flip-card" data-flip aria-label="Presencial" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <i data-lucide="monitor" aria-hidden="true"></i>
+                <p class="stat-value" data-count="100">100%</p>
+                <p class="stat-label">Presencial</p>
+              </div>
+
+              <div class="flip-face flip-back" aria-label="Detalle Presencial">
+                <p class="flip-title">Presencial</p>
+                <p class="flip-text">
+                  Aprendizaje con dinámica de equipo, acompañamiento cercano y sesiones prácticas.
+                </p>
+                <ul class="flip-list">
+                  <li>Ambiente tipo tech hub</li>
+                  <li>Rutina y disciplina</li>
+                  <li>Networking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="stat-card flip-card" data-flip aria-label="Años de Experiencia" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <i data-lucide="code" aria-hidden="true"></i>
+                <p class="stat-value" data-count="8">+8</p>
+                <p class="stat-label">Años de Experiencia</p>
+              </div>
+
+              <div class="flip-face flip-back" aria-label="Detalle Experiencia">
+                <p class="flip-title">Experiencia</p>
+                <p class="flip-text">
+                  Metodología probada con enfoque en empleabilidad y habilidades técnicas reales.
+                </p>
+                <ul class="flip-list">
+                  <li>Currículo actualizado</li>
+                  <li>Stack moderno</li>
+                  <li>Pruebas técnicas</li>
+                </ul>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="stat-card flip-card" data-flip aria-label="Acceso Tecnológico" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <i data-lucide="brain" aria-hidden="true"></i>
+                <p class="stat-value">24/7</p>
+                <p class="stat-label">Acceso Tecnológico</p>
+              </div>
+
+              <div class="flip-face flip-back" aria-label="Detalle Acceso Tecnológico">
+                <p class="flip-title">Acceso 24/7</p>
+                <p class="flip-text">
+                  Recursos, laboratorios y herramientas para practicar y avanzar a tu ritmo.
+                </p>
+                <ul class="flip-list">
+                  <li>Contenido y repos</li>
+                  <li>Retos y guías</li>
+                  <li>Soporte y comunidad</li>
+                </ul>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-
-      
-    
-      <div class="stats-grid" id="statsGrid">
-        <!-- 1 -->
-        <div class="stat-card flip-card" data-flip aria-label="Horas Prácticas" tabindex="0">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <i data-lucide="clock" aria-hidden="true"></i>
-              <p class="stat-value" data-count="1600">+1600</p>
-              <p class="stat-label">Horas Prácticas</p>
-            </div>
-
-            <div class="flip-face flip-back" aria-label="Detalle Horas Prácticas">
-              <p class="flip-title">Horas Prácticas</p>
-              <p class="flip-text">
-                Entrenamiento intensivo con retos reales, pair programming y prácticas guiadas.
-              </p>
-              <ul class="flip-list">
-                <li>Proyectos por sprint</li>
-                <li>Mentoría y code review</li>
-                <li>Entrega con portafolio</li>
-              </ul>
-              <!-- FIX: botón "Volver" añadido — el JS lo espera para cerrar la card -->
-              <button class="flip-close" type="button">Volver</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="stat-card flip-card" data-flip aria-label="Presencial" tabindex="0">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <i data-lucide="monitor" aria-hidden="true"></i>
-              <p class="stat-value" data-count="100">100%</p>
-              <p class="stat-label">Presencial</p>
-            </div>
-
-            <div class="flip-face flip-back" aria-label="Detalle Presencial">
-              <p class="flip-title">Presencial</p>
-              <p class="flip-text">
-                Aprendizaje con dinámica de equipo, acompañamiento cercano y sesiones prácticas.
-              </p>
-              <ul class="flip-list">
-                <li>Ambiente tipo tech hub</li>
-                <li>Rutina y disciplina</li>
-                <li>Networking</li>
-              </ul>
-              <!-- FIX: botón "Volver" añadido -->
-              <button class="flip-close" type="button">Volver</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="stat-card flip-card" data-flip aria-label="Años de Experiencia" tabindex="0">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <i data-lucide="code" aria-hidden="true"></i>
-              <p class="stat-value" data-count="8">+8</p>
-              <p class="stat-label">Años de Experiencia</p>
-            </div>
-
-            <div class="flip-face flip-back" aria-label="Detalle Experiencia">
-              <p class="flip-title">Experiencia</p>
-              <p class="flip-text">
-                Metodología probada con enfoque en empleabilidad y habilidades técnicas reales.
-              </p>
-              <ul class="flip-list">
-                <li>Currículo actualizado</li>
-                <li>Stack moderno</li>
-                <li>Pruebas técnicas</li>
-              </ul>
-              <!-- FIX: botón "Volver" añadido -->
-              <button class="flip-close" type="button">Volver</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="stat-card flip-card" data-flip aria-label="Acceso Tecnológico" tabindex="0">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <i data-lucide="brain" aria-hidden="true"></i>
-              <p class="stat-value">24/7</p>
-              <p class="stat-label">Acceso Tecnológico</p>
-            </div>
-
-            <div class="flip-face flip-back" aria-label="Detalle Acceso Tecnológico">
-              <p class="flip-title">Acceso 24/7</p>
-              <p class="flip-text">
-                Recursos, laboratorios y herramientas para practicar y avanzar a tu ritmo.
-              </p>
-              <ul class="flip-list">
-                <li>Contenido y repos</li>
-                <li>Retos y guías</li>
-                <li>Soporte y comunidad</li>
-              </ul>
-              <!-- FIX: botón "Volver" añadido -->
-              <button class="flip-close" type="button">Volver</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-</div>
   </section>
+
   
 
   <!-- CAMPER PROFILE -->
@@ -464,117 +462,87 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <div class="carousel">
-        <div class="list">
-            <div class="item">
-                <img src="IMG/img1.png">
-                <div class="introduce">
-                    <div class="title"> Talent Pool</div>
-                    <div class="topic">JUNIOR BASICO</div>
-                    <button class="seeMore">INFORMACION &#8599</button>
-                </div>
-                <div class="detail">
-                    <div class="title">JUNIOR BASICO</div>
-                    <div class="des">
-                        <!-- lorem 50 -->
-                    Formación a la medida, con el objetivo de desarrollar las habilidades técnicas y blandas necesarias para el éxito en el entorno laboral.
-                    </div>
-                    <div class="specifications">
-                        <div>
-                            <p>2 hojas de vida por vacante</p>
-                        </div>
-                        <div>
-                            <p>Garantía: 1 mes</p>
-                        </div>
-                        <div>
-                            <p>Experiencia Campuslands</p>
-                        </div>
-                        <div>
-                            <h4>Precio</h4>
-                            <h1>$1.000.000</h1>
-                        </div>
-                    
-                    
-                    </div>
-                
-                </div>
-            </div>
-            <!-- DOS -->
-            <div class="item">
-                <img src="IMG/img4.png">
-                <div class="introduce">
-                    <div class="title"> Más Popular </div>
-                    <div class="topic">JUNIOR PLUS</div>
-                    <button class="seeMore">INFORMACION &#8599</button>
-                </div>
-                <div class="detail">
-                    <div class="title">JUNIOR PLUS</div>
-                    <div class="des">
-                        <!-- lorem 50 -->
-                    Formación a la medida, con el objetivo de desarrollar las habilidades técnicas y blandas necesarias para el éxito en el entorno laboral.
-                    </div>
-                    <div class="specifications">
-                        <div>
-                            <p>2 hojas de vida por vacante</p>
-                        </div>
-                        <div>
-                            <p>Garantía: 1 mes</p>
-                        </div>
-                        <div>
-                            <p>Experiencia laboral previa</p>
-                        </div>
-                        <div>
-                            <h4>Precio</h4>
-                            <h1>$1.500.000</h1>
-                        </div>
-                    
-                    
-                    </div>
-                
-                </div>
-            </div>
-            <!-- TRES -->
-            <div class="item">
-                <img src="IMG/img2.png">
-                <div class="introduce">
-                    <div class="title"> Talent Pool </div>
-                    <div class="topic">DEV MID</div>
-                    <button class="seeMore">INFORMACION &#8599</button>
-                </div>
-                <div class="detail">
-                    <div class="title">DEV MID</div>
-                    <div class="des">
-                        <!-- lorem 50 -->
-                    Formación a la medida, con el objetivo de desarrollar las habilidades técnicas y blandas necesarias para el éxito en el entorno laboral.
-                    </div>
-                    <div class="specifications">
-                        <div>
-                            <p>2 hojas de vida por vacante</p>
-                        </div>
-                        <div>
-                            <p>Garantía: 2 meses</p>
-                        </div>
-                        <div>
-                            <p>Amplia experiencia laboral</p>
-                        </div>
-                        <div>
-                            <h1>1 salario Camper</h1>
-                        </div>
-                    
-                    
-                    </div>
-                
-                </div>
-            </div>
+<!-- SERVICES -->
+  <section id="services" class="section section-services">
+  <div id="services" class="carousel">
+    <div class="list">
+      <div class="item">
+        <img src="IMG/img1.png">
+        <div class="introduce">
+          <div class="title"> Talent Pool</div>
+          <div class="topic">JUNIOR BASICO</div>
+          <div class="info">
+            <p>Formación a la medida.
+            </p>
+          </div>
+          <div>
+            <p>2 hojas de vida por vacante</p>
+            <p>Garantía: 1 mes</p>
+            <p>Experiencia Campuslands</p>
+            <h1>Precio</h1>
+            <h1>$1.000.000</h1>
+          </div>
+          <a href="https://wa.me/573236736422" class="seeMore" target="_blank">INFORMACION</a>
+
         </div>
-        <div class="arrows">
-            <button id="prev"><</button>
-            <button id="next">></button>
-            <button id="back">REGRESAR  &#8599</button>
+
+      </div>
+      <!-- DOS -->
+      <div class="item">
+        <img src="IMG/img4.png">
+        <div class="introduce">
+          <div class="title"> Más Popular </div>
+          <div class="topic">JUNIOR PLUS</div>
+          <div class="info">
+            <p>Formación a la medida.
+            </p>
+          </div>
+          <div>
+            <p>2 hojas de vida por vacante</p>
+            <p>Garantía: 1 mes</p>
+            <p>Experiencia laboral previa</p>
+            <h1>Precio</h1>
+            <h1>$1.500.000</h1>
+          </div>
+
+          <a href="https://wa.me/573236736422" class="seeMore" target="_blank">INFORMACION</a>
+
         </div>
+      </div>
+      <!-- TRES -->
+      <div class="item">
+        <img src="IMG/img2.png">
+        <div class="introduce">
+          <div class="title"> Talent Pool </div>
+          <div class="topic">DEV MID</div>
+          <div class="info">
+            <p>Formación a la medida.
+            </p>
+          </div>
+          <div>
+            <p>2 hojas de vida por vacante</p>
+            <p>Garantía: 2 meses</p>
+            <p>Amplia experiencia laboral</p>
+            <h1>Precio</h1>
+            <h1>1 salario Camper</h1>
+          </div>
+
+          <a href="https://wa.me/573236736422" class="seeMore" target="_blank">INFORMACION</a>
+
+        </div>
+      </div>
+
     </div>
-  
+    <div class="arrows">
+  <button id="prev">
+    <img src="IMG/flecha.png" alt="anterior">
+  </button>
+  <button id="next">
+    <img src="IMG/flecha.png" alt="siguiente">
+  </button>
+</div>
+  </div>
+</section>
 
   <!-- IMPACT -->
   <section id="impact" class="section section-impact">
@@ -582,7 +550,8 @@
       <div class="section-header">
         <p class="section-tag">Impacto</p>
         <h2 class="section-title">Impacto <span class="text-gradient">Económico y Social</span></h2>
-        <p class="section-description">El 85% de nuestros partners empresariales ha reducido sus costos de contratación.</p>
+        <p class="section-description">El 85% de nuestros partners empresariales ha reducido sus costos de contratación.
+        </p>
       </div>
 
       <div class="impact-stats">
@@ -676,14 +645,16 @@
           <p class="contact-role">Ejecutiva de Relaciones Comerciales</p>
           <div class="contact-details">
             <a href="tel:+573236736422"><i data-lucide="phone" aria-hidden="true"></i> +57 323 673 6422</a>
-            <a href="mailto:comercial@campuslands.com"><i data-lucide="mail" aria-hidden="true"></i> comercial@campuslands.com</a>
+            <a href="mailto:comercial@campuslands.com"><i data-lucide="mail" aria-hidden="true"></i>
+              comercial@campuslands.com</a>
             <p><i data-lucide="map-pin" aria-hidden="true"></i> Floridablanca, Colombia</p>
           </div>
         </div>
 
         <div class="contact-buttons">
           <a href="mailto:comercial@campuslands.com" class="btn-primary btn-lg">Enviar Correo</a>
-          <a href="https://wa.me/573236736422" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-lg">WhatsApp</a>
+          <a href="https://wa.me/573236736422" target="_blank" rel="noopener noreferrer"
+            class="btn-secondary btn-lg">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -711,7 +682,8 @@
         <a href="mailto:comercial@campuslands.com" class="btn-primary btn-lg modal-btn">
           <i data-lucide="mail" aria-hidden="true"></i> Enviar Correo
         </a>
-        <a href="https://wa.me/573236736422" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-lg modal-btn modal-btn--wa">
+        <a href="https://wa.me/573236736422" target="_blank" rel="noopener noreferrer"
+          class="btn-secondary btn-lg modal-btn modal-btn--wa">
           <i data-lucide="message-circle" aria-hidden="true"></i> WhatsApp
         </a>
       </div>
@@ -723,11 +695,10 @@
     </div>
   </div>
 
-  <!-- PAGE TRANSITION OVERLAY -->
-  <!-- FIX: el archivo original estaba cortado aquí; se restaura el HTML completo -->
   <div id="page-transition" class="page-transition" aria-hidden="true">
     <div class="transition-content">
-      <img src="IMG/logoCampus-removebg-preview.png" alt="" class="transition-logo-img" loading="lazy" decoding="async" />
+      <img src="IMG/logoCampus-removebg-preview.png" alt="" class="transition-logo-img" loading="lazy"
+        decoding="async" />
       <span class="transition-brand">Campuslands</span>
       <div class="transition-bar-wrap">
         <div class="transition-bar-fill"></div>
@@ -735,8 +706,9 @@
     </div>
   </div>
 
-  
 
+<div id="navOverlay" class="nav-overlay"></div>
   <script src="JS/script.js" defer></script>
 </body>
+
 </html>

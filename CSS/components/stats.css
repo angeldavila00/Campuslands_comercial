@@ -140,24 +140,6 @@
     flex-shrink: 0;
 }
 
-.flip-close {
-    margin-top: auto;
-    justify-self: start;
-    border: 1px solid rgba(255, 255, 255, .18);
-    background: rgba(0, 0, 0, .16);
-    color: rgba(255, 255, 255, .9);
-    font-weight: 900;
-    border-radius: 12px;
-    padding: .6rem .85rem;
-    cursor: pointer;
-    transition: var(--transition-base);
-    font-family: inherit;
-}
-
-.flip-close:hover {
-    transform: translateY(-2px);
-    background: rgba(0, 0, 0, .22);
-}
 
 .stat-card.flip-card:focus-within .flip-face {
     box-shadow: 0 0 0 4px rgba(237, 137, 54, 0.22);

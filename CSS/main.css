@@ -22,6 +22,7 @@
 @import './components/clients.css';
 @import './components/contact.css';
 @import './components/modal.css';
+@import './components/footer.css';
 
 /* ── SECTIONS ── */
 @import './sections/about.css';
@@ -32,3 +33,4 @@
 
 /* ── RESPONSIVE (siempre al final) ── */
 @import './responsive/breakpoints.css';
+

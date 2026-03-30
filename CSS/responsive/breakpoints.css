@@ -1,31 +1,34 @@
 /* ==========================================
    RESPONSIVE — Breakpoints móvil / tablet
-   Importar DESPUÉS de todos los demás CSS.
    ========================================== */
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+.nav-overlay.active {
+    display: block;
+}
 
 /* ── Tablet grande (≤ 1024px) ── */
 @media (max-width: 1024px) {
     .container { padding: 0 2.5rem; }
 
-    .hero-grid {
-        grid-template-columns: 1fr;
-    }
+    .hero-grid { grid-template-columns: 1fr; }
 
-    .hero-panel { display: none; } /* Oculta el panel derecho decorativo */
+    .hero-panel { display: none; }
 
     .hero-title { font-size: clamp(2.2rem, 5vw, 3.8rem); }
 
-    .section-split {
-        grid-template-columns: 1fr;
-    }
+    .section-split { grid-template-columns: 1fr; }
 
-    .split-aside {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .split-aside { grid-template-columns: repeat(2, 1fr); }
 
-    .section-methodology {
-        grid-template-columns: 1fr;
-    }
+    .section-methodology { grid-template-columns: 1fr; }
 
     .section-methodology .paises-box { display: none; }
 
@@ -52,25 +55,46 @@
 @media (max-width: 768px) {
     .container { padding: 0 1.25rem; }
 
-    /* Navbar móvil */
+    /* Navbar — barra lateral */
     .nav-menu {
-        display: none;
+        display: none !important;
         position: fixed;
         top: 0;
-        left: 0;
         right: 0;
-        bottom: 0;
+        width: 280px;
         background: rgba(27, 32, 82, 0.98);
         backdrop-filter: blur(16px);
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.75rem;
-        font-size: 1.35rem;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 5rem 2rem 2rem;
+        gap: 0.5rem;
+        font-size: 1.2rem;
         z-index: 999;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.3);
+        overflow-y: auto;
     }
 
-    .nav-menu.active { display: flex; }
+    .nav-menu.active {
+        display: flex !important;
+        transform: translateX(0);
+    }
+
+    .nav-menu a {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 12px;
+        color: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-contact {
+        width: 100%;
+        margin-top: 1rem;
+        text-align: center;
+    }
 
     .nav-toggle { display: flex; z-index: 1001; }
 
@@ -110,7 +134,7 @@
     .section-services .plan-card:nth-child(1),
     .section-services .plan-card:nth-child(2),
     .section-services .plan-card:nth-child(3) {
-        transform: translateY(40px); /* Reset a animación vertical para móvil */
+        transform: translateY(40px);
     }
 
     /* Impact */
@@ -124,9 +148,7 @@
         padding: 1.5rem;
     }
 
-    .contact-buttons {
-        flex-direction: column;
-    }
+    .contact-buttons { flex-direction: column; }
 
     .contact-buttons .btn-primary,
     .contact-buttons .btn-secondary {

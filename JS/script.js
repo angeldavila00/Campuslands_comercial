@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initModal();
   initPageTransition();
-  initFlipStats();
   initCountUp();
   initMapaScrollRotate();
   initPlanCards(); // ✅ AÑADIDO: activa la animación de entrada de las plan-cards
@@ -249,23 +248,34 @@ function initNavbarScroll() {
 // MENÚ MÓVIL (HAMBURGUESA)
 // ==========================================
 function initMobileMenu() {
-  const toggle = document.getElementById('navToggle');
-  const menu = document.getElementById('navMenu');
-  if (!toggle || !menu) return;
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    const overlay = document.getElementById('navOverlay');
+    if (!toggle || !menu) return;
 
-  toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('active');
-    toggle.classList.toggle('active');
-    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-  });
+    const closeMenu = () => {
+        menu.classList.remove('active');
+        toggle.classList.remove('active');
+        overlay?.classList.remove('active');
+        toggle.setAttribute('aria-label', 'Abrir menú');
+    };
 
-  document.addEventListener('click', (e) => {
-    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.remove('active');
-      toggle.classList.remove('active');
-      toggle.setAttribute('aria-label', 'Abrir menú');
-    }
-  });
+    toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('active');
+        toggle.classList.toggle('active');
+        overlay?.classList.toggle('active');
+        toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
+
+    overlay?.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
 }
 
 // ==========================================
@@ -331,76 +341,7 @@ function initParallax() {
 }
 
 
-function initFlipStats() {
-  const grid = document.getElementById('statsGrid');
-  if (!grid) return;
 
-  // Hacer cada card "clickeable" + accesible por teclado
-  grid.querySelectorAll('[data-flip]').forEach((card) => {
-    card.setAttribute('role', 'button');
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-pressed', 'false');
-  });
-
-  const setFlipped = (card, flipped) => {
-    card.classList.toggle('is-flipped', flipped);
-    card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
-  };
-
-  const closeAll = () => {
-    grid.querySelectorAll('[data-flip].is-flipped').forEach((c) => setFlipped(c, false));
-  };
-
-  // Click: alterna flip (si clickeas en "Volver", vuelve al frente)
-  grid.addEventListener('click', (e) => {
-    const closeBtn = e.target.closest('.flip-close');
-    if (closeBtn) {
-      const card = closeBtn.closest('[data-flip]');
-      if (card) setFlipped(card, false);
-      return;
-    }
-
-    const card = e.target.closest('[data-flip]');
-    if (!card) return;
-
-    // Evita togglear si seleccionas texto en el back
-    if (window.getSelection && String(window.getSelection()).length > 0) return;
-
-    const willFlip = !card.classList.contains('is-flipped');
-
-    // ✅ Opcional: solo 1 tarjeta abierta a la vez (recomendado)
-    closeAll();
-
-    setFlipped(card, willFlip);
-  });
-
-  // Teclado: Enter/Espacio alterna, Escape cierra
-  grid.addEventListener('keydown', (e) => {
-    const card = e.target.closest('[data-flip]');
-    if (!card) return;
-
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      const willFlip = !card.classList.contains('is-flipped');
-
-      // ✅ solo 1 abierta a la vez
-      closeAll();
-
-      setFlipped(card, willFlip);
-    }
-
-    if (e.key === 'Escape') {
-      setFlipped(card, false);
-      card.blur();
-    }
-  });
-
-  // Cerrar si haces click fuera del grid
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('#statsGrid [data-flip]')) return;
-    closeAll();
-  });
-}
 
 // ==========================================
 // COUNT UP ANIMATION — Respeta prefijo/sufijo
@@ -480,12 +421,11 @@ function initMapaScrollRotate(){
         const sectionTop = rect.top;
         const sectionBottom = rect.bottom;
 
-        // SOLO cuando la sección está visible
         if(sectionTop < windowHeight && sectionBottom > 0){
 
           const progress = (windowHeight - sectionTop) / (windowHeight + rect.height);
 
-          const rotation = progress * 360;
+          const rotation = 180 + (progress * 360);
 
           mapa.style.transform =
               `translateX(var(--textX)) scale(var(--textScale)) rotate(${rotation}deg)`;
@@ -503,13 +443,10 @@ function initMapaScrollRotate(){
   }, { passive:true });
 
 }
-
 let nextButton = document.getElementById('next');
 let prevButton = document.getElementById('prev');
 let carousel = document.querySelector('.carousel');
 let listHTML = document.querySelector('.carousel .list');
-let seeMoreButtons = document.querySelectorAll('.seeMore');
-let backButton = document.getElementById('back');
 
 nextButton.onclick = function(){
     showSlider('next');
@@ -517,6 +454,7 @@ nextButton.onclick = function(){
 prevButton.onclick = function(){
     showSlider('prev');
 }
+
 let unAcceppClick;
 const showSlider = (type) => {
     nextButton.style.pointerEvents = 'none';
@@ -535,15 +473,12 @@ const showSlider = (type) => {
     unAcceppClick = setTimeout(()=>{
         nextButton.style.pointerEvents = 'auto';
         prevButton.style.pointerEvents = 'auto';
-    }, 2000)
-}
-seeMoreButtons.forEach((button) => {
-    button.onclick = function(){
-        carousel.classList.remove('next', 'prev');
-        carousel.classList.add('showDetail');
-    }
-});
-backButton.onclick = function(){
-    carousel.classList.remove('showDetail');
+    }, 700)
 }
 
+document.querySelectorAll('.carousel .list .item img').forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => {
+        showSlider('next');
+    });
+});

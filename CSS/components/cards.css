@@ -10,6 +10,9 @@
     padding: 1.5rem;
     box-shadow: var(--shadow-1);
     transition: var(--transition-base);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
 }
 
 .about-card:hover {
@@ -64,6 +67,7 @@
     cursor: pointer;
     padding: .75rem 0 0;
     font-family: inherit;
+    margin-top: auto;
 }
 
 .btn-expand i { width: 18px; height: 18px; transition: transform .25s ease; }
@@ -102,7 +106,6 @@
 .profile-card {
     background: var(--color-secondary);
     border: 1px solid color-mix(in hsl, var(--color-border) 75%, white 25%);
-    box-shadow: 10px 0 20px var(--color-primary);
     border-radius: var(--r2);
     padding: 1.25rem;
     text-align: center;
@@ -121,12 +124,12 @@
 .profile-card h3 { color: var(--color-primary); font-size: 1rem; margin-bottom: .35rem; }
 .profile-card p  { color: var(--color-muted-foreground); font-size: 1.05rem; }
 
+
 /* ── Tech stack ── */
 .tech-stack {
     background: var(--color-secondary);
     border-radius: var(--r2);
     padding: 1.75rem;
-    box-shadow: 10px 0 20px var(--color-primary);
 }
 
 .tech-stack h3 { text-align: center; color: var(--color-primary); margin-bottom: 1rem; }
