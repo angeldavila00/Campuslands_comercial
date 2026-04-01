@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPageTransition();
   initCountUp();
   initMapaScrollRotate();
+  initFlipCards();
   initCarousel(); // ✅ FIX #2: movido dentro de DOMContentLoaded como función propia
 
   // initPlanCards() eliminado — las .plan-card de #services ya no existen,
@@ -386,6 +387,26 @@ function initMapaScrollRotate() {
       ticking = true;
     }
   }, { passive: true });
+}
+
+// ==========================================
+// FLIP CARDS — Click/tap para móvil
+// ==========================================
+function initFlipCards() {
+  document.addEventListener('click', (e) => {
+    const card = e.target.closest('.flip-card[data-flip]');
+    if (!card) return;
+
+    const isFlipped = card.classList.contains('is-flipped');
+
+    // Cierra todas las demás
+    document.querySelectorAll('.flip-card[data-flip].is-flipped').forEach(c => {
+      if (c !== card) c.classList.remove('is-flipped');
+    });
+
+    // Alterna la actual
+    card.classList.toggle('is-flipped', !isFlipped);
+  });
 }
 
 // ==========================================
