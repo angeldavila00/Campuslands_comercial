@@ -10,7 +10,7 @@
     padding: 1.5rem;
     box-shadow: var(--shadow-1);
     transition: var(--transition-base);
-    min-height: 280px;
+    min-height: 302px;
     display: flex;
     flex-direction: column;
 }

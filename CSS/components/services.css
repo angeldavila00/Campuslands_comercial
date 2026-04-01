@@ -15,7 +15,6 @@
     background: var(--color-background);
     pointer-events: none;
     z-index: 0;
-    background-image: linear-gradient(50deg, #6672dd, rgb(181, 190, 139));
 }
 
 .section-services .container { position: relative; z-index: 1; }
@@ -178,4 +177,3 @@
 }
 
 .section-services .btn-plan-accent:hover { opacity: .95; }
-

@@ -23,6 +23,7 @@
 @import './components/contact.css';
 @import './components/modal.css';
 @import './components/footer.css';
+@import './components/carousel.css';
 
 /* ── SECTIONS ── */
 @import './sections/about.css';

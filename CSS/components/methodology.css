@@ -6,41 +6,59 @@
 
 
 .section-methodology {
-    --mapScale: 0.50;
-    --textScale: 0.60;
-    --mapX: -48%;
-    --textX: -49%;
+    --mapScale: 1.20;
+    --textScale: 1.35;
+    --mapX: -18%;
+    --textX: -19%;
     --spinSpeed: 15s;
 
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 2rem;
+    gap: 0.5rem;
     position: relative;
     overflow: hidden;
-    background: var(--color-primary);
+    background: transparent;
     color: var(--color-primary-foreground);
+    padding: 3rem 0;
 }
 
 .section-methodology .section-title       { color: var(--color-primary-foreground); }
 .section-methodology .section-description { color: rgba(255, 255, 255, .75); }
 
+.section-methodology::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../../IMG/espacial.webp');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.section-methodology::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(27, 32, 82, 0.55);
+    z-index: 1;
+}
+
 /* ── Mapa izquierdo ── */
-.section-methodology .paises-left {
+.section-methodology .paises-box {
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: clamp(120px, 18vw, 260px);
-    height: clamp(120px, 18vw, 260px);
-    overflow: hidden;
+    width: clamp(280px, 42vw, 560px);
+    height: clamp(280px, 42vw, 560px);
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
 }
 
 .section-methodology .container {
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .section-methodology .paises-bg,
@@ -72,7 +90,6 @@
     justify-content: flex-start;
 }
 
-.cuadroinformativo .container { padding: 0; }
 
 /* ── Methodology cards ── */
 .methodology-grid {

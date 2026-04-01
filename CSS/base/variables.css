@@ -1,29 +1,68 @@
 /* ==========================================
    VARIABLES — Paleta & tokens globales
    ========================================== */
+
+/* ── Nutmeg (fuente de pago — coloca los archivos en CSS/fonts/)
+@font-face {
+    font-family: 'Nutmeg';
+    src: url('../fonts/Nutmeg-Black.woff2') format('woff2'),
+         url('../fonts/Nutmeg-Black.woff')  format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Nutmeg';
+    src: url('../fonts/Nutmeg-Bold.woff2') format('woff2'),
+         url('../fonts/Nutmeg-Bold.woff')  format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+── */
+
 :root {
-    --color-primary: hsl(234, 60%, 24%);
-    --color-primary-dark: hsl(234, 60%, 18%);
-    --color-primary-foreground: hsl(0, 0%, 100%);
+    /* ── Familias tipográficas ── */
+    --font-display: 'Nutmeg', 'Poppins', sans-serif;  /* h1, h2, h3 — Destacados/Web  */
+    --font-heading: 'Poppins', sans-serif;             /* Navbar, botones, labels, UI  */
+    --font-body:    'Roboto Mono', monospace;          /* Cuerpos de texto, párrafos   */
 
-    --color-background: hsl(220, 33%, 99%);
-    --color-foreground: hsl(228, 40%, 14%);
+    /* ── Paleta cromática Campuslands Brandbook 2023 ──
+       #5E3AE2  morado principal
+       #000087  azul marino oscuro
+       #F4B422  amarillo dorado (acento)
+       #2CAAFF  azul cielo
+       #00AA80  verde esmeralda
+       #E4E4DB  neutro cálido (fondo/off-white)
+    ── */
 
-    --color-secondary: hsl(228, 30%, 96%);
-    --color-muted: hsl(228, 25%, 94%);
-    --color-muted-foreground: hsl(228, 16%, 42%);
-    --color-border: hsl(228, 18%, 86%);
+    --color-primary:            #5E3AE2;          /* morado principal          */
+    --color-primary-dark:       #000087;          /* azul marino oscuro        */
+    --color-primary-foreground: #ffffff;
 
-    --color-accent: hsl(39, 92%, 55%);
-    --color-accent-hover: hsl(39, 92%, 50%);
-    --color-accent-foreground: hsl(228, 40%, 14%);
+    --color-background:         #f8f8f5;          /* blanco cálido, cercano a #E4E4DB  */
+    --color-foreground:         #1a1230;          /* texto oscuro sobre fondo claro    */
 
-    --gradient-accent: linear-gradient(135deg, hsl(39, 92%, 55%), hsl(33, 92%, 52%));
+    --color-secondary:          #efefeb;          /* derivado de #E4E4DB               */
+    --color-muted:              #e8e8e2;
+    --color-muted-foreground:   #5a5470;          /* morado desaturado para textos UI  */
+    --color-border:             #d4d4cc;
+
+    --color-accent:             #F4B422;          /* amarillo dorado                   */
+    --color-accent-hover:       #d99d1a;
+    --color-accent-foreground:  #1a1230;
+
+    /* ── Colores de apoyo de la paleta ── */
+    --color-blue:               #2CAAFF;          /* azul cielo                        */
+    --color-green:              #00AA80;          /* verde esmeralda                   */
+    --color-neutral:            #E4E4DB;          /* neutro cálido                     */
+
+    --gradient-accent: linear-gradient(135deg, #F4B422, #d99d1a);
     --gradient-hero: linear-gradient(
             180deg,
-            hsla(234, 60%, 18%, 0.55) 0%,
-            hsla(234, 60%, 16%, 0.82) 60%,
-            hsl(234, 60%, 14%) 100%
+            hsla(255, 72%, 30%, 0.55) 0%,
+            hsla(240, 30%, 20%, 0.72) 60%,
+            hsl(240, 100%, 14%) 100%
     );
 
     --container-max-width: 1280px;
@@ -35,9 +74,9 @@
     --shadow-1: 0 14px 40px rgba(16, 24, 40, 0.08);
     --shadow-2: 0 18px 55px rgba(16, 24, 40, 0.12);
 
-    --color-border-light: hsl(228, 20%, 91%);
-    --color-bg-muted-mix: hsl(226, 28%, 97%);
-    --color-accent-mix: hsl(38, 85%, 95%);
+    --color-border-light:    #dcdcd4;
+    --color-bg-muted-mix:    #f2f2ee;
+    --color-accent-mix:      #fef6e0;
 
     --transition-base: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
 

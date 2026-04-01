@@ -1,12 +1,18 @@
 /* ==========================================
-   TYPOGRAPHY
+   TYPOGRAPHY — Sistema tipográfico Campuslands
+   Nutmeg    → h1–h6, títulos destacados (Destacados/Web)
+   Poppins   → UI: navbar, botones, labels, section-tag
+   Roboto Mono → cuerpos de texto, descripciones, párrafos
    ========================================== */
+
+/* ── Títulos — Nutmeg con fallback a Poppins ── */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 800;
+    font-family: var(--font-display);
+    font-weight: 900;
     line-height: 1.15;
 }
 
+/* ── Gradiente de texto ── */
 .text-gradient {
     background: var(--gradient-accent);
     -webkit-background-clip: text;
@@ -14,7 +20,9 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
 }
 
+/* ── Section tag — Poppins (UI label) ── */
 .section-tag {
+    font-family: var(--font-heading);
     color: var(--color-accent);
     font-weight: 900;
     text-transform: uppercase;
@@ -23,14 +31,18 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.75rem;
 }
 
+/* ── Section title — Nutmeg ── */
 .section-title {
+    font-family: var(--font-display);
     font-size: clamp(2.1rem, 3.8vw, 3rem);
     color: var(--color-primary);
     margin-bottom: 1rem;
 }
 
+/* ── Section description — Roboto Mono ── */
 .section-description {
+    font-family: var(--font-body);
     color: var(--color-muted-foreground);
-    font-size: 1.15rem;
+    font-size: 1rem;
     line-height: 1.75;
 }

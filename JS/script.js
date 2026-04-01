@@ -1,6 +1,5 @@
 // ==========================================
 // INITIALIZE — todo dentro de DOMContentLoaded
-// ✅ lucide.createIcons() movido aquí porque el script ahora es `defer`
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
   lucide.createIcons();
@@ -17,7 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initPageTransition();
   initCountUp();
   initMapaScrollRotate();
-  initPlanCards(); // ✅ AÑADIDO: activa la animación de entrada de las plan-cards
+  initCarousel(); // ✅ FIX #2: movido dentro de DOMContentLoaded como función propia
+
+  // initPlanCards() eliminado — las .plan-card de #services ya no existen,
+  // fueron reemplazadas por el carrusel. FIX #4.
 
   if (window.matchMedia('(min-width: 769px)').matches) {
     initParallax();
@@ -39,7 +41,6 @@ function initPageTransition() {
 
   let isAnimating = false;
 
-  // ✅ Delegación de eventos: 1 solo listener en vez de N listeners
   document.addEventListener('click', function (e) {
     const link = e.target.closest('a.nav-link[href^="#"]');
     if (!link) return;
@@ -81,8 +82,6 @@ function initPageTransition() {
 
 // ==========================================
 // EXPANDABLE CARDS (About Section)
-// ✅ Usa aria-expanded + hidden para accesibilidad correcta
-// ✅ 1 solo listener delegado, sin clonación de nodos
 // ==========================================
 function initExpandableCards() {
   if (window.__expandableCardsDelegated) return;
@@ -102,7 +101,6 @@ function initExpandableCards() {
 
     const isExpanded = details.classList.contains('show');
 
-    // Cierra todos
     document.querySelectorAll('[data-expandable]').forEach((c) => {
       const b = c.querySelector('.btn-expand');
       const d = c.querySelector('.card-details');
@@ -114,7 +112,6 @@ function initExpandableCards() {
       if (d) d.classList.remove('show');
     });
 
-    // Abre el actual si estaba cerrado
     if (!isExpanded) {
       btn.setAttribute('aria-expanded', 'true');
       btn.innerHTML = 'Ver menos <i data-lucide="chevron-down" aria-hidden="true"></i>';
@@ -143,10 +140,8 @@ function initSmoothScroll() {
 
 // ==========================================
 // SCROLL ANIMATIONS (Intersection Observer)
-// ✅ unobserve después de animar (evita trabajo innecesario)
 // ==========================================
 function initScrollAnimations() {
-  // ✅ Respeta prefers-reduced-motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const observer = new IntersectionObserver(
@@ -155,7 +150,7 @@ function initScrollAnimations() {
         if (entry.isIntersecting) {
           entry.target.style.opacity = '1';
           entry.target.style.transform = 'translateY(0)';
-          observer.unobserve(entry.target); // ✅ deja de observar tras animar
+          observer.unobserve(entry.target);
         }
       });
     },
@@ -167,9 +162,9 @@ function initScrollAnimations() {
     '.stat-card',
     '.methodology-card',
     '.profile-card',
-    '.plan-card',
     '.impact-card',
     '.why-item',
+    // '.plan-card' eliminado — ya no existe en el DOM. FIX #4
   ];
 
   document.querySelectorAll(animatedSelectors.join(', ')).forEach((el, index) => {
@@ -182,40 +177,7 @@ function initScrollAnimations() {
 }
 
 // ==========================================
-// PLAN CARDS — Animación de entrada por dirección
-// ✅ AÑADIDO: Las .plan-card de #services necesitan la clase
-//    .is-visible para hacerse visibles (sin esto quedan opacity:0)
-// ==========================================
-function initPlanCards() {
-  const cards = document.querySelectorAll('.section-services .plan-card');
-  if (!cards.length) return;
-
-  // Respeta prefers-reduced-motion
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    cards.forEach(card => card.classList.add('is-visible'));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      // Usamos un pequeño delay escalonado para que entren una por una
-      const visible = entries.filter(e => e.isIntersecting);
-      visible.forEach((entry, i) => {
-        setTimeout(() => {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }, i * 120);
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  cards.forEach(card => observer.observe(card));
-}
-
-// ==========================================
 // NAVBAR SCROLL EFFECT
-// ✅ Usa requestAnimationFrame para no saturar el hilo principal
 // ==========================================
 function initNavbarScroll() {
   const navbar = document.querySelector('.navbar');
@@ -248,39 +210,41 @@ function initNavbarScroll() {
 // MENÚ MÓVIL (HAMBURGUESA)
 // ==========================================
 function initMobileMenu() {
-    const toggle = document.getElementById('navToggle');
-    const menu = document.getElementById('navMenu');
-    const overlay = document.getElementById('navOverlay');
-    if (!toggle || !menu) return;
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('navMenu');
+  // FIX #5: #navOverlay no existe en el HTML — el código ya usa ?. así que no
+  // rompe, pero el overlay no funciona. Para activarlo añade al HTML justo
+  // antes de </body>: <div id="navOverlay" class="nav-overlay"></div>
+  const overlay = document.getElementById('navOverlay');
+  if (!toggle || !menu) return;
 
-    const closeMenu = () => {
-        menu.classList.remove('active');
-        toggle.classList.remove('active');
-        overlay?.classList.remove('active');
-        toggle.setAttribute('aria-label', 'Abrir menú');
-    };
+  const closeMenu = () => {
+    menu.classList.remove('active');
+    toggle.classList.remove('active');
+    overlay?.classList.remove('active');
+    toggle.setAttribute('aria-label', 'Abrir menú');
+  };
 
-    toggle.addEventListener('click', () => {
-        const isOpen = menu.classList.toggle('active');
-        toggle.classList.toggle('active');
-        overlay?.classList.toggle('active');
-        toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-    });
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('active');
+    toggle.classList.toggle('active');
+    overlay?.classList.toggle('active');
+    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  });
 
-    overlay?.addEventListener('click', closeMenu);
+  overlay?.addEventListener('click', closeMenu);
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMenu();
-    });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
 
-    menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
 }
 
 // ==========================================
 // MODAL DE CONTACTO
-// ✅ Gestión de foco para accesibilidad (focus trap básico)
 // ==========================================
 function initModal() {
   const modal = document.getElementById('contact-modal');
@@ -292,13 +256,13 @@ function initModal() {
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
     lucide.createIcons();
-    closeBtn.focus(); // ✅ mueve el foco al modal al abrirlo
+    closeBtn.focus();
   };
 
   const closeModal = () => {
     modal.classList.remove('is-open');
     document.body.style.overflow = '';
-    openBtn.focus(); // ✅ devuelve el foco al botón que lo abrió
+    openBtn.focus();
   };
 
   openBtn.addEventListener('click', (e) => {
@@ -317,7 +281,6 @@ function initModal() {
 
 // ==========================================
 // PARALLAX SUTIL EN EL HERO
-// ✅ requestAnimationFrame para suavizar + solo en desktop
 // ==========================================
 function initParallax() {
   const hero = document.querySelector('.hero');
@@ -340,11 +303,8 @@ function initParallax() {
   );
 }
 
-
-
-
 // ==========================================
-// COUNT UP ANIMATION — Respeta prefijo/sufijo
+// COUNT UP ANIMATION
 // ==========================================
 function initCountUp() {
   const counters = document.querySelectorAll('[data-count]');
@@ -355,10 +315,7 @@ function initCountUp() {
 
   const getAffix = (el) => {
     const raw = el.textContent.trim();
-
-    // Busca si el símbolo está antes o después del número
     const match = raw.match(/^([^0-9]*)[\d,]+([^0-9]*)$/);
-
     return {
       prefix: match ? match[1] : '',
       suffix: match ? match[2] : ''
@@ -400,85 +357,80 @@ function initCountUp() {
   counters.forEach(counter => observer.observe(counter));
 }
 
-function initMapaScrollRotate(){
-
+// ==========================================
+// MAPA SCROLL ROTATE
+// ==========================================
+function initMapaScrollRotate() {
   const mapa = document.querySelector('.paises-nombres');
   const section = document.querySelector('.section-methodology');
 
-  if(!mapa || !section) return;
+  if (!mapa || !section) return;
 
   let ticking = false;
 
   window.addEventListener('scroll', () => {
-
-    if(!ticking){
-
+    if (!ticking) {
       requestAnimationFrame(() => {
-
         const rect = section.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
-        const sectionTop = rect.top;
-        const sectionBottom = rect.bottom;
-
-        if(sectionTop < windowHeight && sectionBottom > 0){
-
-          const progress = (windowHeight - sectionTop) / (windowHeight + rect.height);
-
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
           const rotation = 180 + (progress * 360);
-
           mapa.style.transform =
-              `translateX(var(--textX)) scale(var(--textScale)) rotate(${rotation}deg)`;
-
+            `translateX(var(--textX)) scale(var(--textScale)) rotate(${rotation}deg)`;
         }
 
         ticking = false;
-
       });
-
       ticking = true;
-
     }
-
-  }, { passive:true });
-
-}
-let nextButton = document.getElementById('next');
-let prevButton = document.getElementById('prev');
-let carousel = document.querySelector('.carousel');
-let listHTML = document.querySelector('.carousel .list');
-
-nextButton.onclick = function(){
-    showSlider('next');
-}
-prevButton.onclick = function(){
-    showSlider('prev');
+  }, { passive: true });
 }
 
-let unAcceppClick;
-const showSlider = (type) => {
+// ==========================================
+// CARRUSEL DE SERVICIOS
+// FIX #2: extraído a función e inicializado dentro de DOMContentLoaded
+// ==========================================
+function initCarousel() {
+  const nextButton = document.getElementById('next');
+  const prevButton = document.getElementById('prev');
+  const carousel   = document.querySelector('.carousel');
+  const listHTML   = document.querySelector('.carousel .list');
+
+  // Salida segura si el carrusel no está en la página
+  if (!nextButton || !prevButton || !carousel || !listHTML) return;
+
+  let unAcceptClick;
+
+  const showSlider = (type) => {
     nextButton.style.pointerEvents = 'none';
     prevButton.style.pointerEvents = 'none';
 
     carousel.classList.remove('next', 'prev');
-    let items = document.querySelectorAll('.carousel .list .item');
-    if(type === 'next'){
-        listHTML.appendChild(items[0]);
-        carousel.classList.add('next');
-    }else{
-        listHTML.prepend(items[items.length - 1]);
-        carousel.classList.add('prev');
-    }
-    clearTimeout(unAcceppClick);
-    unAcceppClick = setTimeout(()=>{
-        nextButton.style.pointerEvents = 'auto';
-        prevButton.style.pointerEvents = 'auto';
-    }, 700)
-}
+    const items = document.querySelectorAll('.carousel .list .item');
 
-document.querySelectorAll('.carousel .list .item img').forEach(img => {
+    if (type === 'next') {
+      listHTML.appendChild(items[0]);
+      carousel.classList.add('next');
+    } else {
+      listHTML.prepend(items[items.length - 1]);
+      carousel.classList.add('prev');
+    }
+
+    clearTimeout(unAcceptClick);
+    unAcceptClick = setTimeout(() => {
+      nextButton.style.pointerEvents = 'auto';
+      prevButton.style.pointerEvents = 'auto';
+    }, 700);
+  };
+
+  nextButton.addEventListener('click', () => showSlider('next'));
+  prevButton.addEventListener('click', () => showSlider('prev'));
+
+  // Click en imagen también avanza el carrusel
+  document.querySelectorAll('.carousel .list .item img').forEach(img => {
     img.style.cursor = 'pointer';
-    img.addEventListener('click', () => {
-        showSlider('next');
-    });
-});
+    img.addEventListener('click', () => showSlider('next'));
+  });
+}
