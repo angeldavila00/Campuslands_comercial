@@ -12,6 +12,7 @@
 @import './layout/grid.css';
 
 /* ── COMPONENTS ── */
+
 @import './components/navbar.css';
 @import './components/hero.css';
 @import './components/cards.css';
@@ -29,6 +30,7 @@
 @import './sections/about.css';
 
 /* ── UTILITIES ── */
+@import './utilities/buttons.css';
 @import './utilities/animations.css';
 @import './utilities/accessibility.css';
 

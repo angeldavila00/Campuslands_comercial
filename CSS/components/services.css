@@ -4,7 +4,7 @@
 .section-services {
     position: relative;
     overflow: hidden;
-    padding: 3rem 0;
+    padding: 6rem 0;
     background: transparent;
 }
 
@@ -147,33 +147,3 @@
     flex: 0 0 auto;
 }
 
-/* ── Botones ── */
-.section-services .btn-plan {
-    display: inline-flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    gap: .5rem;
-    padding: .95rem 1rem;
-    border-radius: 999px;
-    font-weight: 950;
-    background: rgba(27, 32, 82, 0.10);
-    color: var(--color-primary);
-    border: 1px solid rgba(27, 32, 82, 0.18);
-    box-shadow: 0 12px 28px rgba(16, 24, 40, 0.10);
-    transition: transform .2s ease, background .2s ease, border-color .2s ease;
-}
-
-.section-services .btn-plan:hover {
-    transform: translateY(-2px);
-    background: rgba(27, 32, 82, 0.14);
-    border-color: rgba(27, 32, 82, 0.26);
-}
-
-.section-services .btn-plan-accent {
-    background: var(--color-accent);
-    color: var(--color-accent-foreground);
-    border-color: rgba(0, 0, 0, 0.08);
-}
-
-.section-services .btn-plan-accent:hover { opacity: .95; }

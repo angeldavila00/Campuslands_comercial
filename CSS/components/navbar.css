@@ -55,23 +55,7 @@
     background: rgba(255, 255, 255, 0.08);
 }
 
-.btn-contact {
-    background: var(--color-accent);
-    color: var(--color-accent-foreground);
-    padding: 0.7rem 1.15rem;
-    border-radius: 14px;
-    font-weight: 900;
-    transition: var(--transition-base);
-    border: none;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-family: inherit;
-}
-
-.btn-contact:hover {
-    opacity: 0.92;
-    transform: translateY(-2px);
-}
+/* .btn-contact usa .btn-primary de utilities/buttons.css */
 
 .nav-toggle {
     display: none;

@@ -60,57 +60,7 @@
     margin-bottom: 1.5rem;
 }
 
-.btn-primary-reseñas{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: .5rem;
-    padding: 1rem 1.25rem;
-    border-radius: 14px;
-    font-weight: 900;
-    font-size: 1.1rem;
-    transition: var(--transition-base);
-    border: 1px solid transparent;
-    outline: none;
-    margin-top: 8rem;
-}
-
-.btn-primary,
-.btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: .5rem;
-    padding: 1rem 1.25rem;
-    border-radius: 14px;
-    font-weight: 900;
-    font-size: 1.1rem;
-    transition: var(--transition-base);
-    border: 1px solid transparent;
-    outline: none;
-}
-
-.btn-lg { padding: 1rem 1.25rem; }
-
-.btn-primary {
-    background: var(--color-accent);
-    color: var(--color-accent-foreground);
-}
-.btn-primary:hover { opacity: .92; transform: translateY(-2px); }
-
-.btn-secondary {
-    background: rgba(255, 255, 255, .10);
-    color: var(--color-primary-foreground);
-    border-color: rgba(255, 255, 255, .25);
-}
-.btn-secondary:hover { background: rgba(255, 255, 255, .16); transform: translateY(-2px); }
-
-.btn-primary:focus-visible,
-.btn-secondary:focus-visible,
-.btn-plan:focus-visible,
-.btn-contact:focus-visible {
-    box-shadow: 0 0 0 4px rgba(237, 137, 54, 0.28);
-}
+/* Botones definidos en utilities/buttons.css */
 
 /* ── Stats ── */
 .hero-stats {

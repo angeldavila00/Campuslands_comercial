@@ -1,0 +1,92 @@
+/* ==========================================
+   BUTTONS — Sistema unificado
+   Un solo lugar para todos los botones.
+
+   Variantes de color:
+     .btn-primary   → fondo amarillo (#F4B422), texto oscuro — CTA principal
+     .btn-secondary → fondo transparente, borde blanco — sobre fondos oscuros
+     .btn-outline   → fondo transparente, borde morado — sobre fondos claros
+
+   Modificadores de tamaño:
+     (base)         → padding 0.85rem 1.4rem  | font-size 1rem
+     .btn-sm        → padding 0.55rem 1rem    | font-size 0.875rem
+     .btn-lg        → padding 1rem 1.6rem     | font-size 1.1rem
+
+   Modificador de ancho:
+     .btn-full      → width 100% + justify-content center
+   ========================================== */
+
+/* ── Base ── */
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+    gap:             0.5rem;
+
+    padding:         0.85rem 1.4rem;
+    border-radius:   14px;
+    border:          1px solid transparent;
+
+    font-family:     var(--font-heading);
+    font-weight:     900;
+    font-size:       1rem;
+    line-height:     1;
+    white-space:     nowrap;
+    text-decoration: none;
+    cursor:          pointer;
+    outline:         none;
+
+    transition:      transform 0.25s ease,
+                     opacity   0.25s ease,
+                     box-shadow 0.25s ease,
+                     background 0.25s ease,
+                     border-color 0.25s ease;
+}
+
+/* ── Variante primaria — amarillo ── */
+.btn-primary {
+    background: var(--color-accent);
+    color:      var(--color-accent-foreground);
+    border-color: transparent;
+}
+.btn-primary:hover  { opacity: .9; transform: translateY(-2px); }
+.btn-primary:active { opacity: 1;  transform: translateY(0);    }
+
+/* ── Variante secundaria — azul cielo #2CAAFF (paleta Campuslands) ── */
+.btn-secondary {
+    background:   var(--color-blue);   /* #2CAAFF — azul cielo */
+    color:        #ffffff;
+    border-color: transparent;
+}
+.btn-secondary:hover  { opacity: .88; transform: translateY(-2px); }
+.btn-secondary:active { opacity: 1;   transform: translateY(0);    }
+
+/* ── Variante outline — borde morado (sobre fondos claros) ── */
+.btn-outline {
+    background:   rgba(94, 58, 226, 0.07);
+    color:        var(--color-primary);
+    border-color: rgba(94, 58, 226, 0.22);
+}
+.btn-outline:hover  { background: rgba(94, 58, 226, 0.13); border-color: rgba(94, 58, 226, 0.38); transform: translateY(-2px); }
+.btn-outline:active { background: rgba(94, 58, 226, 0.08); transform: translateY(0); }
+
+/* ── Tamaños ── */
+.btn-sm { padding: 0.55rem 1rem;  font-size: 0.875rem; border-radius: 10px; }
+.btn-lg { padding: 1rem   1.6rem; font-size: 1.1rem;   }
+
+/* ── Ancho completo ── */
+.btn-full { width: 100%; justify-content: center; }
+
+/* ── Iconos dentro de botones ── */
+.btn-primary i,
+.btn-secondary i,
+.btn-outline i { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* ── Focus accesible ── */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-outline:focus-visible {
+    box-shadow: 0 0 0 4px rgba(244, 180, 34, 0.35);
+}
