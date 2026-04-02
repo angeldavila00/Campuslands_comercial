@@ -23,3 +23,65 @@
             rgba(255, 255, 255, 0) 80%
     );
 }
+/* ==========================================
+   ABOUT CARDS — Slider horizontal
+   ========================================== */
+.cards-slider {
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+    user-select: none;
+}
+
+.cards-slider:active { cursor: grabbing; }
+
+.cards-track {
+    display: flex;
+    align-items: flex-start; /* FIX: sin esto el default es "stretch" y cuando
+                                una card se expande, todas estiran su altura
+                                igualándose, pareciendo que se abren vacías */
+    gap: 1rem;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+}
+
+.cards-track .about-card {
+    flex: 0 0 calc(33.333% - 0.67rem);
+    min-width: 280px;
+}
+
+/* ── Dots ── */
+.cards-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.cards-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-border);
+    transition: background 0.3s ease, width 0.3s ease;
+    cursor: pointer;
+}
+
+.cards-dot.active {
+    background: var(--color-primary);
+    width: 24px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .cards-track .about-card {
+        flex: 0 0 calc(50% - 0.5rem);
+    }
+}
+
+@media (max-width: 640px) {
+    .cards-track .about-card {
+        flex: 0 0 85%;
+    }
+}

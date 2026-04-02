@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPageTransition();
   initCountUp();
   initMapaScrollRotate();
+  initAboutSlider();
   initFlipCards();
   initCarousel(); // ✅ FIX #2: movido dentro de DOMContentLoaded como función propia
 
@@ -169,6 +170,11 @@ function initScrollAnimations() {
   ];
 
   document.querySelectorAll(animatedSelectors.join(', ')).forEach((el, index) => {
+    // Las cards dentro del slider tienen su propia visibilidad — excluirlas
+    // evita que queden en opacity:0 cuando el observer no las "ve" (están
+    // clippeadas por overflow:hidden del slider y fuera del viewport).
+    if (el.closest('.cards-slider')) return;
+
     el.style.opacity = '0';
     el.style.transform = 'translateY(16px)';
     const d = index * 0.03;
@@ -192,10 +198,10 @@ function initNavbarScroll() {
       if (!ticking) {
         requestAnimationFrame(() => {
           if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(27, 32, 82, 0.98)';
+            navbar.style.background = 'rgba(94, 58, 226, 0.98)';
             navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
           } else {
-            navbar.style.background = 'rgba(27, 32, 82, 0.92)';
+            navbar.style.background = 'rgba(94, 58, 226, 0.92)';
             navbar.style.boxShadow = 'none';
           }
           ticking = false;
@@ -387,6 +393,127 @@ function initMapaScrollRotate() {
       ticking = true;
     }
   }, { passive: true });
+}
+
+// ==========================================
+// ABOUT CARDS SLIDER — drag mouse + touch
+// ==========================================
+function initAboutSlider() {
+  const slider        = document.querySelector('.cards-slider');
+  const track         = document.querySelector('.cards-track');
+  const dotsContainer = document.querySelector('.cards-dots');
+  if (!slider || !track) return;
+
+  // FIX #1: las cards del slider fueron excluidas de initScrollAnimations
+  // (que las dejaba en opacity:0 cuando el observer no las detectaba por
+  // estar clippeadas). Aquí las garantizamos visibles desde el inicio.
+  track.querySelectorAll('.about-card').forEach(card => {
+    card.style.opacity    = '1';
+    card.style.transform  = '';
+    card.style.transition = '';
+  });
+
+  let startX       = 0;
+  let currentX     = 0;
+  let isDragging   = false;
+  let currentIndex = 0;
+
+  // Ancho de una card + gap
+  const getCardWidth = () => {
+    const card = track.querySelector('.about-card');
+    return card ? card.offsetWidth + 16 : 0; // 16px = 1rem gap
+  };
+
+  // FIX #2: calcula cuántas cards caben y así el índice máximo real.
+  // Antes se clampeaba a total-1, lo que permitía posiciones con huecos vacíos.
+  const getMaxIndex = () => {
+    const cardW        = getCardWidth();
+    const visibleCount = cardW > 0
+      ? Math.max(1, Math.floor(slider.offsetWidth / cardW))
+      : 1;
+    const total = track.querySelectorAll('.about-card').length;
+    return Math.max(0, total - visibleCount);
+  };
+
+  // Regenera los dots según el número real de páginas
+  const buildDots = () => {
+    if (!dotsContainer) return;
+    const maxIndex = getMaxIndex();
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i <= maxIndex; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'cards-dot' + (i === currentIndex ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+  };
+
+  const syncDots = () => {
+    if (!dotsContainer) return;
+    dotsContainer.querySelectorAll('.cards-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === currentIndex)
+    );
+  };
+
+  const goTo = (index) => {
+    currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
+    track.style.transform = `translateX(-${currentIndex * getCardWidth()}px)`;
+    syncDots();
+  };
+
+  // Construye dots iniciales
+  buildDots();
+
+  // Mouse drag
+  slider.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX     = e.clientX;
+    track.style.transition = 'none';
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    currentX = e.clientX - startX;
+    track.style.transform =
+      `translateX(calc(-${currentIndex * getCardWidth()}px + ${currentX}px))`;
+  });
+  window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    track.style.transition = '';
+    if      (currentX < -60) goTo(currentIndex + 1);
+    else if (currentX >  60) goTo(currentIndex - 1);
+    else                     goTo(currentIndex);
+    currentX = 0;
+  });
+
+  // Touch
+  slider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    track.style.transition = 'none';
+  }, { passive: true });
+  slider.addEventListener('touchmove', (e) => {
+    currentX = e.touches[0].clientX - startX;
+    track.style.transform =
+      `translateX(calc(-${currentIndex * getCardWidth()}px + ${currentX}px))`;
+  }, { passive: true });
+  slider.addEventListener('touchend', () => {
+    track.style.transition = '';
+    if      (currentX < -60) goTo(currentIndex + 1);
+    else if (currentX >  60) goTo(currentIndex - 1);
+    else                     goTo(currentIndex);
+    currentX = 0;
+  });
+
+  // Recalcula en resize (cambia el nº de cards visibles y por tanto los dots)
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (currentIndex > getMaxIndex()) currentIndex = getMaxIndex();
+      track.style.transform = `translateX(-${currentIndex * getCardWidth()}px)`;
+      buildDots();
+    }, 150);
+  });
 }
 
 // ==========================================
