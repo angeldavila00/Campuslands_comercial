@@ -40,16 +40,16 @@
 
 .card-subtitle {
     color: var(--color-accent);
-    font-size: 1rem;
+    font-size: var(--text-base);
     font-weight: 900;
     margin-bottom: .15rem;
 }
 
-.card-title { font-size: 1.4rem; color: var(--color-primary); }
+.card-title { font-size: var(--text-xl); color: var(--color-primary); }
 
 .card-description {
     color: var(--color-muted-foreground);
-    font-size: 1.1rem;
+    font-size: var(--text-md);
     margin-bottom: .6rem;
     line-height: 1.65;
 }
@@ -62,7 +62,7 @@
     border: none;
     color: var(--color-primary);
     font-weight: 900;
-    font-size: 1.05rem;
+    font-size: var(--text-md);
     cursor: pointer;
     padding: .75rem 0 0;
     font-family: inherit;
@@ -87,7 +87,7 @@
     align-items: flex-start;
     gap: .6rem;
     color: var(--color-muted-foreground);
-    font-size: 1.1rem;
+    font-size: var(--text-md);
     margin-bottom: .6rem;
 }
 
@@ -120,8 +120,8 @@
     margin: 0 auto .7rem;
 }
 
-.profile-card h3 { color: var(--color-primary); font-size: 1rem; margin-bottom: .35rem; }
-.profile-card p  { color: var(--color-muted-foreground); font-size: 1.05rem; }
+.profile-card h3 { color: var(--color-primary); font-size: var(--text-base); margin-bottom: .35rem; }
+.profile-card p  { color: var(--color-muted-foreground); font-size: var(--text-md); }
 
 
 /* ── Tech stack ── */
@@ -152,5 +152,5 @@
     padding: .55rem .9rem;
     border-radius: 10px;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: var(--text-base);
 }

@@ -1,15 +1,38 @@
 /* ==========================================
-   TYPOGRAPHY — Sistema tipográfico Campuslands
-   Nutmeg    → h1–h6, títulos destacados (Destacados/Web)
-   Poppins   → UI: navbar, botones, labels, section-tag
-   Roboto Mono → cuerpos de texto, descripciones, párrafos
+   TYPOGRAPHY — Escala tipográfica Campuslands
+   Nutmeg      → h1–h6, títulos
+   Poppins     → UI: navbar, botones, labels, section-tag
+   Roboto Mono → párrafos, descripciones, body
    ========================================== */
 
-/* ── Títulos — Nutmeg con fallback a Poppins ── */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    line-height: 1.15;
+/* ── Escala base ── */
+:root {
+    --text-xs:   0.75rem;   /* 12px — labels pequeños, hints        */
+    --text-sm:   0.875rem;  /* 14px — captions, tags, badges        */
+    --text-base: 0.95rem;   /* 15px — párrafos, descripciones       */
+    --text-md:   1.05rem;   /* 17px — texto destacado, card-desc    */
+    --text-lg:   1.25rem;   /* 20px — subtítulos, nav               */
+    --text-xl:   1.5rem;    /* 24px — h4, valores de stats          */
+    --text-2xl:  1.875rem;  /* 30px — h3, precios                   */
+    --text-3xl:  2rem;      /* 32px — h2, section-title             */
+    --text-4xl:  2.5rem;    /* 40px — h1 secundario, impact-value   */
+    --text-5xl:  3rem;      /* 48px — h1 hero (clamp)               */
+}
+
+/* ── Títulos — Nutmeg ── */
+h1 { font-family: var(--font-display); font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl)); font-weight: 700; line-height: 1.1; }
+h2 { font-family: var(--font-display); font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl)); font-weight: 700; line-height: 1.15; }
+h3 { font-family: var(--font-display); font-size: var(--text-xl);  font-weight: 700; line-height: 1.2; }
+h4 { font-family: var(--font-display); font-size: var(--text-lg);  font-weight: 700; line-height: 1.25; }
+h5 { font-family: var(--font-display); font-size: var(--text-md);  font-weight: 700; line-height: 1.3; }
+h6 { font-family: var(--font-display); font-size: var(--text-base);font-weight: 700; line-height: 1.35; }
+
+/* ── Párrafos — Roboto Mono ── */
+p {
+    font-family: var(--font-body);
+    font-size:   var(--text-base);
+    line-height: 1.7;
+    color:       var(--color-muted-foreground);
 }
 
 /* ── Gradiente de texto ── */
@@ -20,29 +43,30 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
 }
 
-/* ── Section tag — Poppins (UI label) ── */
+/* ── Section tag — Poppins ── */
 .section-tag {
-    font-family: var(--font-heading);
-    color: var(--color-accent);
-    font-weight: 900;
+    font-family:    var(--font-heading);
+    font-size:      var(--text-sm);
+    font-weight:    900;
     text-transform: uppercase;
-    font-size: 0.9rem;
     letter-spacing: 0.08em;
-    margin-bottom: 0.75rem;
+    color:          var(--color-accent);
+    margin-bottom:  0.75rem;
 }
 
-/* ── Section title — Nutmeg ── */
+/* ── Section title — h2 con margen ── */
 .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.1rem, 3.8vw, 3rem);
-    color: var(--color-primary);
+    font-family:   var(--font-display);
+    font-size:     clamp(var(--text-2xl), 3vw, var(--text-3xl));
+    color:         var(--color-primary);
     margin-bottom: 1rem;
+    line-height:   1.15;
 }
 
 /* ── Section description — Roboto Mono ── */
 .section-description {
     font-family: var(--font-body);
-    color: var(--color-muted-foreground);
-    font-size: 1rem;
+    font-size:   var(--text-base);
+    color:       var(--color-muted-foreground);
     line-height: 1.75;
 }

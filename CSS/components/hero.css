@@ -40,14 +40,14 @@
 }
 
 .hero-title {
-    font-size: clamp(3.2rem, 2.5vw, 4.8rem);
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
     color: var(--color-primary-foreground);
     line-height: 1.05;
     margin-bottom: 1rem;
 }
 
 .hero-description {
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-size: clamp(var(--text-base), 2vw, var(--text-md));
     color: rgba(255, 255, 255, .78);
     max-width: 52ch;
     margin-bottom: 1.5rem;
