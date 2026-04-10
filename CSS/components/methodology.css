@@ -23,8 +23,14 @@
     padding: 3rem 0;
 }
 
-.section-methodology .section-title       { color: var(--color-primary-foreground); }
-.section-methodology .section-description { color: rgba(255, 255, 255, .75); }
+.section-methodology .section-title       { 
+    color: var(--color-primary-foreground); 
+
+}
+.section-methodology .section-description { 
+    color: rgba(255, 255, 255, .75);
+    font-size: var(--text-md); 
+}
 
 .section-methodology::before {
     content: "";

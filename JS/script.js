@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMapaScrollRotate();
   initAboutSlider();
   initFlipCards();
+  initContactAnimation();
   initCarousel(); // ✅ FIX #2: movido dentro de DOMContentLoaded como función propia
 
   // initPlanCards() eliminado — las .plan-card de #services ya no existen,
@@ -581,4 +582,12 @@ function initCarousel() {
     img.style.cursor = 'pointer';
     img.addEventListener('click', () => showSlider('next'));
   });
+}
+
+function initContactAnimation() {
+  const card = document.querySelector('.contact-card');
+  if (!card) return;
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) card.classList.add('is-visible');
+  }, { threshold: 0.1 }).observe(card);
 }

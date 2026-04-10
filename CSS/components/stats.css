@@ -83,7 +83,7 @@
 
 .flip-front .stat-label {
     color: rgba(255, 255, 255, .75);
-    font-size: 1rem;
+    font-size: var(--text-md);
 }
 
 .flip-hint {
@@ -111,7 +111,7 @@
 
 .flip-text {
     color: rgba(255, 255, 255, .76);
-    font-size: 1rem;
+    font-size: var(--text-md);
     line-height: 1.55;
 }
 
