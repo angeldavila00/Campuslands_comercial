@@ -215,14 +215,7 @@ p.inf{
 #prev img {
     transform: scaleX(-1);
 }
- 
-#prev:hover img,
-#next:hover img {
-    opacity: 0.6;
-    transition: opacity 0.3s;
-}
- 
- 
+
 .carousel::before{
     width: 500px;
     height: 300px;
