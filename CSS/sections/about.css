@@ -6,7 +6,7 @@
     z-index: 2;
     background: var(--color-background);
     margin-top: 0px;
-    padding-top: calc(6rem + 80px);
+    padding-top: calc(50px);
 }
 
 .section-about::before {
@@ -37,9 +37,7 @@
 
 .cards-track {
     display: flex;
-    align-items: flex-start; /* FIX: sin esto el default es "stretch" y cuando
-                                una card se expande, todas estiran su altura
-                                igualándose, pareciendo que se abren vacías */
+    align-items: flex-start; 
     gap: 1rem;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     will-change: transform;

@@ -2,9 +2,6 @@
    METHODOLOGY
    ========================================== */
 
-
-
-
 .section-methodology {
     --mapScale: 1.20;
     --textScale: 1.35;
@@ -20,7 +17,7 @@
     overflow: hidden;
     background: transparent;
     color: var(--color-primary-foreground);
-    padding: 3rem 0;
+    padding: 6rem 0;
 }
 
 .section-methodology .section-title       { 

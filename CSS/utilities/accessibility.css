@@ -5,8 +5,7 @@
 /* ── Focus visible global ── */
 .btn-primary:focus-visible,
 .btn-secondary:focus-visible,
-.btn-plan:focus-visible,
-.btn-contact:focus-visible {
+.btn-plan:focus-visible {
     box-shadow: 0 0 0 4px rgba(237, 137, 54, 0.28);
 }
 
@@ -33,11 +32,5 @@
     .section-methodology .paises-nombres {
         animation: none;
         transform: translateX(var(--textX)) scale(var(--textScale));
-    }
-
-    .section-services .plan-card {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
     }
 }

@@ -97,7 +97,6 @@
 }
 
 .panel-card--side {
-    width: min(360px, 100%);
     opacity: .96;
 }
 
@@ -110,7 +109,7 @@
 
 .panel-pill {
     font-size: .8rem;
-    font-weight: 900;
+    font-weight: 500;
     color: rgba(255, 255, 255, .92);
     background: rgba(0, 0, 0, .18);
     border: 1px solid rgba(255, 255, 255, .18);
@@ -128,7 +127,7 @@
 
 .panel-title {
     color: var(--color-primary-foreground);
-    font-weight: 900;
+    font-weight: 500;
     font-size: 1.05rem;
     margin-bottom: .25rem;
 }
@@ -189,7 +188,7 @@
     border: 1px solid rgba(255, 255, 255, .18);
     background: rgba(0, 0, 0, .16);
     color: rgba(255, 255, 255, .88);
-    font-weight: 800;
+    font-weight: 500;
     font-size: 1rem;
 }
 

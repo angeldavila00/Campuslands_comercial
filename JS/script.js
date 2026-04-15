@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbarScroll();
   initMobileMenu();
   initModal();
-  initPageTransition();
   initCountUp();
   initMapaScrollRotate();
   initAboutSlider();
@@ -21,67 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactAnimation();
   initCarousel(); // ✅ FIX #2: movido dentro de DOMContentLoaded como función propia
 
-  // initPlanCards() eliminado — las .plan-card de #services ya no existen,
-  // fueron reemplazadas por el carrusel. FIX #4.
-
   if (window.matchMedia('(min-width: 769px)').matches) {
     initParallax();
   }
 });
 
-// ==========================================
-// PANTALLA AZUL DE TRANSICIÓN
-// ==========================================
-function initPageTransition() {
-  const overlay = document.getElementById('page-transition');
-  if (!overlay) return;
 
-  const barFill = overlay.querySelector('.transition-bar-fill');
-
-  const ENTER_DURATION = 260;
-  const VISIBLE_HOLD = 300;
-  const LEAVE_DURATION = 240;
-
-  let isAnimating = false;
-
-  document.addEventListener('click', function (e) {
-    const link = e.target.closest('a.nav-link[href^="#"]');
-    if (!link) return;
-
-    const href = link.getAttribute('href');
-    if (href === '#' || isAnimating) return;
-
-    const target = document.querySelector(href);
-    if (!target) return;
-
-    e.preventDefault();
-    isAnimating = true;
-
-    overlay.classList.remove('is-leaving');
-    overlay.classList.add('is-entering');
-
-    setTimeout(() => {
-      window.scrollTo({ top: target.offsetTop - 64, behavior: 'instant' });
-      document.getElementById('navMenu')?.classList.remove('active');
-      document.getElementById('navToggle')?.classList.remove('active');
-    }, ENTER_DURATION + VISIBLE_HOLD);
-
-    setTimeout(() => {
-      overlay.classList.remove('is-entering');
-      overlay.classList.add('is-leaving');
-      if (barFill) barFill.style.transition = 'none';
-
-      setTimeout(() => {
-        overlay.classList.remove('is-leaving');
-        if (barFill) {
-          barFill.style.transition = '';
-          barFill.style.width = '0%';
-        }
-        isAnimating = false;
-      }, LEAVE_DURATION);
-    }, ENTER_DURATION + VISIBLE_HOLD + 20);
-  });
-}
 
 // ==========================================
 // EXPANDABLE CARDS (About Section)
@@ -336,10 +280,10 @@ function initCountUp() {
     const startTime = performance.now();
 
     const update = (currentTime) => {
-      const elapsed  = currentTime - startTime;
+      const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const eased    = easeOutCubic(progress);
-      const value    = Math.floor(eased * target);
+      const eased = easeOutCubic(progress);
+      const value = Math.floor(eased * target);
 
       el.textContent = `${prefix}${value.toLocaleString()}${suffix}`;
 
@@ -400,8 +344,8 @@ function initMapaScrollRotate() {
 // ABOUT CARDS SLIDER — drag mouse + touch
 // ==========================================
 function initAboutSlider() {
-  const slider        = document.querySelector('.cards-slider');
-  const track         = document.querySelector('.cards-track');
+  const slider = document.querySelector('.cards-slider');
+  const track = document.querySelector('.cards-track');
   const dotsContainer = document.querySelector('.cards-dots');
   if (!slider || !track) return;
 
@@ -409,14 +353,14 @@ function initAboutSlider() {
   // (que las dejaba en opacity:0 cuando el observer no las detectaba por
   // estar clippeadas). Aquí las garantizamos visibles desde el inicio.
   track.querySelectorAll('.about-card').forEach(card => {
-    card.style.opacity    = '1';
-    card.style.transform  = '';
+    card.style.opacity = '1';
+    card.style.transform = '';
     card.style.transition = '';
   });
 
-  let startX       = 0;
-  let currentX     = 0;
-  let isDragging   = false;
+  let startX = 0;
+  let currentX = 0;
+  let isDragging = false;
   let currentIndex = 0;
 
   // Ancho de una card + gap
@@ -428,7 +372,7 @@ function initAboutSlider() {
   // FIX #2: calcula cuántas cards caben y así el índice máximo real.
   // Antes se clampeaba a total-1, lo que permitía posiciones con huecos vacíos.
   const getMaxIndex = () => {
-    const cardW        = getCardWidth();
+    const cardW = getCardWidth();
     const visibleCount = cardW > 0
       ? Math.max(1, Math.floor(slider.offsetWidth / cardW))
       : 1;
@@ -468,7 +412,7 @@ function initAboutSlider() {
   // Mouse drag
   slider.addEventListener('mousedown', (e) => {
     isDragging = true;
-    startX     = e.clientX;
+    startX = e.clientX;
     track.style.transition = 'none';
   });
   window.addEventListener('mousemove', (e) => {
@@ -481,9 +425,9 @@ function initAboutSlider() {
     if (!isDragging) return;
     isDragging = false;
     track.style.transition = '';
-    if      (currentX < -60) goTo(currentIndex + 1);
-    else if (currentX >  60) goTo(currentIndex - 1);
-    else                     goTo(currentIndex);
+    if (currentX < -60) goTo(currentIndex + 1);
+    else if (currentX > 60) goTo(currentIndex - 1);
+    else goTo(currentIndex);
     currentX = 0;
   });
 
@@ -499,9 +443,9 @@ function initAboutSlider() {
   }, { passive: true });
   slider.addEventListener('touchend', () => {
     track.style.transition = '';
-    if      (currentX < -60) goTo(currentIndex + 1);
-    else if (currentX >  60) goTo(currentIndex - 1);
-    else                     goTo(currentIndex);
+    if (currentX < -60) goTo(currentIndex + 1);
+    else if (currentX > 60) goTo(currentIndex - 1);
+    else goTo(currentIndex);
     currentX = 0;
   });
 
@@ -544,8 +488,8 @@ function initFlipCards() {
 function initCarousel() {
   const nextButton = document.getElementById('next');
   const prevButton = document.getElementById('prev');
-  const carousel   = document.querySelector('.carousel');
-  const listHTML   = document.querySelector('.carousel .list');
+  const carousel = document.querySelector('.carousel');
+  const listHTML = document.querySelector('.carousel .list');
 
   // Salida segura si el carrusel no está en la página
   if (!nextButton || !prevButton || !carousel || !listHTML) return;
