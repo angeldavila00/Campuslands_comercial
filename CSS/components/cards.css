@@ -103,6 +103,11 @@
 
 /* ── Profile card (Camper) ── */
 .profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 200px;
     background: var(--color-secondary);
     border: 1px solid color-mix(in hsl, var(--color-border) 75%, white 25%);
     border-radius: var(--r2);
@@ -114,14 +119,15 @@
 .profile-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-2); }
 
 .profile-card i {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     color: var(--color-accent);
-    margin: 0 auto .7rem;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
 }
 
-.profile-card h3 { color: var(--color-primary); font-size: var(--text-base); margin-bottom: .35rem; }
-.profile-card p  { color: var(--color-muted-foreground); font-size: var(--text-md); }
+.profile-card h3 { color: var(--color-primary); font-size: var(--text-base); margin-bottom: .5rem; line-height: 1.4; }
+.profile-card p  { color: var(--color-muted-foreground); font-size: var(--text-md); line-height: 1.5; }
 
 
 /* ── Tech stack ── */

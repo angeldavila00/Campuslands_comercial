@@ -23,7 +23,8 @@
   border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   background:var(--ink);padding:11px 0;overflow:hidden;
 }
-.marquee-inner{display:flex;white-space:nowrap;animation:scroll 22s linear infinite;}
+.marquee-inner{display:flex;white-space:nowrap;
+  animation:scroll 8s linear infinite;}
 .m-item{
   font-family:var(--mono);
   font-size:1rem;letter-spacing:2px;
